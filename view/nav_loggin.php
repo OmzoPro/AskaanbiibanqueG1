@@ -57,19 +57,19 @@ if (isset($_GET['deconnexion'])) {
                       </a>
                       <ul class="dropdown-menu">
                           <li class="nav-item">
-                              <a href="?p=depot" class="nav-link">
+                              <a href="?p=operation&type_=depot" class="nav-link">
                                   Depôt
                               </a>
                           </li>
 
                           <li class="nav-item">
-                              <a href="?p=retrait" class="nav-link">
+                              <a href="?p=operation&type_=retrait" class="nav-link">
                                   Retrait
                               </a>
                           </li>
 
                           <li class="nav-item">
-                              <a href="?p=virement" class="nav-link">
+                              <a href="?p=operation&type_=virement" class="nav-link">
                                   Virement
                               </a>
                           </li>

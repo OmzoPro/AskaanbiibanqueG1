@@ -2,23 +2,23 @@
 class Operation{
 	private $typeOperation;
 	private $montant;
+	private $soldeAvant;
+	private $soldeApres;
 	private $dateOperation;
 	private $idClient;
 	private $idAgent;
-	private $soldeAvant;
-	private $soldeApres;
 
     /***
      *contructeur avec les parametres des variables declares 
      */
-	function __construct($typeOperation,$montant,$dateOperation,$idClient,$idAgent,$soldeAvant,$soldeApres){
+	function __construct($typeOperation,$montant,$soldeAvant,$soldeApres,$dateOperation,$idClient,$idAgent){
 		$this->typeOperation = $typeOperation;
 		$this->montant = $montant;
+		$this->soldeAvant = $soldeAvant;
+		$this->soldeApres = $soldeApres;
 		$this->dateOperation = $dateOperation;
 		$this->idClient = $idClient;
 		$this->idAgent = $idAgent;
-		$this->soldeAvant = $soldeAvant;
-		$this->soldeApres = $soldeApres;
 	}
 
 	/***

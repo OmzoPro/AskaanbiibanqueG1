@@ -1,4 +1,4 @@
-<?php 
+<?php
 class User{
 	private $nom;
 	private $prenom;

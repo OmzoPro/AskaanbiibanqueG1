@@ -1,4 +1,4 @@
-<?php 
+<?php
 //injection de dependance
 include('../modele/userControle.php');
 include('../modele/User.php');

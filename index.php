@@ -31,6 +31,12 @@
 		else if($_GET['p']=='list_agence'){
 			include('view/list_agence.php');
 		}
+		else if($_GET['p']=='operation'){
+			include('view/operation.php');
+		}
+		else if($_GET['p']=='operation2'){
+			include('view/operation2.php');
+		}
 		else if($_GET['p']=='depot'){
 			include('view/depot.php');
 		}
