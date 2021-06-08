@@ -40,7 +40,7 @@ if (isset($_GET['type_'])) {
                     <div class="col-lg-12">
                         <div class="banner-form-btn">
                             <input type="hidden" name="type_operation" value="<?=$type_operation ;?>">
-                            <button type="submit" name="verifier" class="default-btn">
+                            <button type="submit" name="verifier_depot_retrait" class="default-btn">
                                 Verifier
                             </button>
                         </div>

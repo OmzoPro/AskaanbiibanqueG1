@@ -1,7 +1,13 @@
-<?php session_start(); ?>
+<?php  ?>
 <?php
+
+
+session_start();
 if (isset($_GET['deconnexion'])) {
   session_unset();
+  $_SESSION['role']="";
+  $_SESSION['prenom']="";
+  $_SESSION['nom']="";
   header("location:index.php?p=login");
 }
 ?>

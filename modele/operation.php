@@ -1,47 +1,47 @@
 <?php 
 class Operation{
+	private $idOperation;
+	private $idCompte;
 	private $typeOperation;
-	private $montant;
+	private $montantOperation;
 	private $soldeAvant;
 	private $soldeApres;
+	private $compteDestinataire;
 	private $dateOperation;
-	private $idClient;
 	private $idAgent;
 
     /***
      *contructeur avec les parametres des variables declares 
      */
-	function __construct($typeOperation,$montant,$soldeAvant,$soldeApres,$dateOperation,$idClient,$idAgent){
+	function __construct($idOperation,$idCompte,$typeOperation,$montantOperation,$soldeAvant,$soldeApres,$compteDestinataire,$dateOperation,$idAgent){
+		$this->idOperation = $idOperation;
+		$this->idCompte = $idCompte;
 		$this->typeOperation = $typeOperation;
-		$this->montant = $montant;
+		$this->montantOperation = $montantOperation;
 		$this->soldeAvant = $soldeAvant;
 		$this->soldeApres = $soldeApres;
+		$this->compteDestinataire = $compteDestinataire;
 		$this->dateOperation = $dateOperation;
-		$this->idClient = $idClient;
 		$this->idAgent = $idAgent;
 	}
 
 	/***
      *getters
      */
+	public function getIdOperation(){
+		return $this->idOperation;
+	}
+
+	public function getIdCompte(){
+		return $this->idCompte;
+	}
+
 	public function getTypeOperation(){
 		return $this->typeOperation;
 	}
 
-	public function getMontant(){
-		return $this->montant;
-	}
-
-	public function getDateOperation(){
-		return $this->dateOperation;
-	}
-
-	public function getIdClient(){
-		return $this->idClient;
-	}
-
-	public function getIdAgent(){
-		return $this->idAgent;
+	public function getMontantOperation(){
+		return $this->montantOperation;
 	}
 
 	public function getSoldeAvant(){
@@ -52,27 +52,34 @@ class Operation{
 		return $this->soldeApres;
 	}
 
+	public function getCompteDestinataire(){
+		return $this->compteDestinataire;
+	}
+
+	public function getDateOperation(){
+		return $this->dateOperation;
+	}
+
+	public function getIdAgent(){
+		return $this->idAgent;
+	}
+
 	/***
      *setters
      */
+	public function setIdOperation($idOperation){
+		$this->idOperation = $idOperation;
+	}
+
+	public function setIdCompte($idCompte){
+		$this->idCompte = $idCompte;
+	}
+
 	public function setTypeOperation($typeOperation){
 		$this->typeOperation = $typeOperation;
 	}
-
-	public function setMontant($montant){
-		$this->montant = $montant;
-	}
-
-	public function setDateOperation($dateOperation){
-		$this->dateOperation = $dateOperation;
-	}
-
-	public function setIdClient($idClient){
-		$this->idClient = $idClient;
-	}
-
-	public function setIdAgent($idAgent){
-		$this->idAgent = $idAgent;
+	public function setMontantOperation($montantOperation){
+		$this->montantOperation = $montantOperation;
 	}
 
 	public function setSoldeAvant($soldeAvant){
@@ -81,6 +88,18 @@ class Operation{
 
 	public function setSoldeApres($soldeApres){
 		$this->soldeApres = $soldeApres;
+	}
+
+	public function setCompteDestinataire($compteDestinataire){
+		$this->compteDestinataire = $compteDestinataire;
+	}
+
+	public function setDateOperation($dateOperation){
+		$this->dateOperation = $dateOperation;
+	}
+
+	public function setIdAgent($idAgent){
+		$this->idAgent = $idAgent;
 	}
 
 
