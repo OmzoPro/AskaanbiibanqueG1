@@ -64,7 +64,7 @@ if (isset($_GET['type_'])) {
                         <div class="col-lg-12 col-md-12">
                         <div class="form-group">
                             <label>Montant à deposer</label>
-                            <input type="number" name="montant" class="form-control" placeholder="Montant">
+                            <input type="number" name="montantOperation" class="form-control" placeholder="Montant">
                             <input type="hidden" name="type" value="depot" class="form-control">
                         </div>
                         </div>
@@ -74,7 +74,7 @@ if (isset($_GET['type_'])) {
                         <div class="col-lg-12 col-md-12">
                         <div class="form-group">
                             <label>Montant à Retirer</label>
-                            <input type="number" name="montant" class="form-control" placeholder="Montant">
+                            <input type="number" name="montantOperation" class="form-control" placeholder="Montant">
                             <input type="hidden" name="type" value="retrait" class="form-control">
                         </div>
                         </div>
@@ -90,7 +90,7 @@ if (isset($_GET['type_'])) {
                         <div class="col-lg-12 col-md-12">
                             <div class="form-group">
                                 <label>Numero de Compte du destinataire</label>
-                                <input type="text" disabled="" value="<?=$_SESSION['numCompte']?> " class="form-control">
+                                <input type="text" disabled="" value="<?=$_SESSION['numCompte2']?> " class="form-control">
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6">
@@ -108,8 +108,8 @@ if (isset($_GET['type_'])) {
                         <div class="col-lg-12 col-md-12">
                             <div class="form-group">
                                 <label>Montant du virement</label>
-                                <input type="number" name="montant" class="form-control" placeholder="Montant">
-                                <input type="hidden" name="type" value="retrait" class="form-control">
+                                <input type="number" name="montantOperation" class="form-control" placeholder="Montant">
+                                <input type="hidden" name="type" value="virement" class="form-control">
                             </div>
                         </div>
                         <?php
@@ -118,7 +118,6 @@ if (isset($_GET['type_'])) {
 
                     <div class="col-lg-12">
                         <div class="banner-form-btn">
-                            <input type="hidden" name="id_agent" value="<?=$_SESSION['idAgent']?> " class="form-control">
                             <?php
                                 if (($type_operation=='depot') OR ($type_operation=='retrait')) {
                             ?>

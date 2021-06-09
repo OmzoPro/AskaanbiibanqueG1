@@ -37,14 +37,8 @@
 		else if($_GET['p']=='operation2'){
 			include('view/operation2.php');
 		}
-		else if($_GET['p']=='depot'){
-			include('view/depot.php');
-		}
-		else if($_GET['p']=='retrait'){
-			include('view/retrait.php');
-		}
-		else if($_GET['p']=='virement'){
-			include('view/virement.php');
+		else if($_GET['p']=='resultat'){
+			include('view/resultat.php');
 		}
 		else{
 			include'view/404.php';

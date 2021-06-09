@@ -1,8 +1,10 @@
-<?php 
+<?php
+session_start();
 include('../modele/operationControle.php');
 include('../modele/operation.php');
 include('../modele/compte.php');
 include('../modele/client.php');
+include('../modele/agent.php');
 
 $operationControle = new OperationControle();
 
@@ -12,20 +14,16 @@ if(isset($_POST['verifier_depot_retrait'])){
 	$type_operation = $_POST['type_operation'];
 
 	if($operationControle->verification($compte)){
-		if (($type_operation=='depot') OR ($type_operation=='retrait')) {
 			header('location:../index.php?p=operation2&type_='.$type_operation.'');
-		}else if ($type_operation=='virement') {
-			header("location:../index.php?p=virement");
-		}  
-	}else{
+		}else{
 		header('location:../index.php?p=operation&type_='.$type_operation.'');
-	}  
-}
+		} 
+	}
 
 
 if(isset($_POST['verifier_virement'])){
 
-	$compte = $_POST['compte1'];
+	$compte = $_POST['compte'];
 	$compte2 = $_POST['compte2'];
 	$type_operation = $_POST['type_operation'];
 
@@ -41,7 +39,7 @@ if(isset($_POST['depot_retrait'])){
 
 	$type = $_POST['type'];
 	$soldeavant = (int) $_POST['solde'];
-	$montant = (int) $_POST['montant'];
+	$montant = (int) $_POST['montantOperation'];
 
 	if ($type=="depot") {
 		$soldeapres = $soldeavant+$montant;
@@ -50,19 +48,19 @@ if(isset($_POST['depot_retrait'])){
 	}
 
 	$idCompte = $_POST['id_compte'];
-	$agent = $_POST['id_agent'];
+	$agent = $_SESSION['idAgent'];
 	$date_ope = date('Y-m-d H:i:s');
 	$solde=$soldeapres;
 
-	$idOperation="";
 	$comptedest='';
 	$idClient="";
 	$numCompte="";
 	$typeCompte="";
+	$id="";
 
 	//instance de classe Operation
-	$operation = new Operation($idOperation,$idCompte,$type,$montant,$soldeavant,$soldeapres,$comptedest,$date_ope,$agent);
-
+	$operation = new Operation($id,$idCompte,$type,$montant,$soldeavant,$soldeapres,$comptedest,$date_ope,$agent);
+	
 	//appele a la fonction addOperation de la class operationControle qui permet d'inserer les infos de l'opération de depot a la base de donn"e
 	$operationControle->addOperation($operation);
   
@@ -71,13 +69,15 @@ if(isset($_POST['depot_retrait'])){
 
 	//appele a la fonction editSolde de la class operationControle qui permet de modifier le solde du client apres operation
 	$operationControle->editSolde($compte);
+
+	header('location:../index.php?p=resultat&type_='.$type.'&montant='.$montant.'');
 }
 
 if(isset($_POST['virement'])){
 
 	$type = $_POST['type'];
 	$soldeavant = (int) $_POST['solde'];
-	$montant = (int) $_POST['montant'];
+	$montant = (int) $_POST['montantOperation'];
 
 	$solde_destinataire = $soldeavant+$montant;
 	$solde_expediteur = $soldeavant-$montant;
@@ -92,11 +92,13 @@ if(isset($_POST['virement'])){
 	$idClient="";
 	$numCompte="";
 	$typeCompte="";
+	$id="";
+	$idAgent=$_SESSION['idAgent'];
 
 	//instance de classe Operation
-	$operation = new Operation($idCompte,$type,$montant,$soldeavant,$soldeapres,$destinataire,$date_ope,$agent);
+	$operation = new Operation($id,$idCompte,$type,$montant,$soldeavant,$soldeapres,$destinataire,$date_ope,$agent);
 
-	//appele a la fonction addOperation de la class operationControle qui permet d'inserer les infos de l'opération de depot a la base de donn"e
+	//appele a la fonction addOperation de la class operationControle qui permet d'inserer les infos de l'opération de depot a la base de donnée
 	$operationControle->addOperation($operation);
   
 	//instance de classe compte
@@ -110,6 +112,14 @@ if(isset($_POST['virement'])){
 
 	//appele a la fonction editSolde de la class operationControle qui permet de modifier le solde du client apres operation
 	$operationControle->editSolde2($compte2);
+
+	//instance de classe agent
+//	$agent = new Agent($idAgent);
+	
+	//appele a la fonction infosagent de la class operationControle qui permet d'afficher les coordonnées de l'agent
+//	$operationControle->infosagent($idAgent);
+
+	header('location:../index.php?p=resultat&type_='.$type.'&montant='.$montant.'');
 }
 
 ?>

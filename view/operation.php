@@ -23,42 +23,35 @@ if (isset($_GET['type_'])) {
             }
         ?>
         </div>
-
-        <div class="open-account-form">
         <?php
-            if (($type_operation=='depot') OR ($type_operation=='retrait')){
-            ?>
-
+        if (isset($message)) {
+            echo $message;
+        }
+        ?>
+        <div class="open-account-form">
             <form action="controler/addOperation.php" method="POST">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label>Numéro de compte du client</label>
                             <input type="text" name="compte" class="form-control" placeholder="Numéro de compte">
+                            <input type="hidden" name="type_operation" value="<?=$type_operation ;?>">
                         </div>
                     </div>
+                    <?php
+                        if (($type_operation=='depot') OR ($type_operation=='retrait')){
+                    ?>
                     <div class="col-lg-12">
                         <div class="banner-form-btn">
-                            <input type="hidden" name="type_operation" value="<?=$type_operation ;?>">
+                            
                             <button type="submit" name="verifier_depot_retrait" class="default-btn">
                                 Verifier
                             </button>
                         </div>
                     </div>
-                </div>
-            </form>
-
-            <?php
-            }else if ($type_operation=='virement') {
-            ?>
-            <form action="controler/addOperation.php" method="POST">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="form-group">
-                            <label>Numéro de compte du client</label>
-                            <input type="text" name="compte1" class="form-control" placeholder="Numéro de compte">
-                        </div>
-                    </div>
+                    <?php
+                      }else if ($type_operation=='virement') {
+                    ?>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label>Numéro de compte du destinataire</label>
@@ -67,17 +60,16 @@ if (isset($_GET['type_'])) {
                     </div>
                     <div class="col-lg-12">
                         <div class="banner-form-btn">
-                            <input type="hidden" name="type_operation" value="<?=$type_operation ;?>">
                             <button type="submit" name="verifier_virement" class="default-btn">
                                 Verifier
                             </button>
                         </div>
                     </div>
+                    <?php
+                        }
+                    ?>
                 </div>
             </form>
-            <?php
-            }
-        ?>
         </div>
     </div>
 </section>

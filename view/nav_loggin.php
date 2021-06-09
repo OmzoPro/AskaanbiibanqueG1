@@ -1,13 +1,10 @@
-<?php  ?>
 <?php
-
-
 session_start();
 if (isset($_GET['deconnexion'])) {
   session_unset();
   $_SESSION['role']="";
-  $_SESSION['prenom']="";
-  $_SESSION['nom']="";
+  $_SESSION['prenomAgent']="";
+  $_SESSION['nomAgent']="";
   header("location:index.php?p=login");
 }
 ?>
@@ -124,7 +121,7 @@ if (isset($_GET['deconnexion'])) {
 
               <div class="others-options d-flex align-items-center">
                   <div class="option-item">
-                      <a href="?deconnexion=true" class="default-btn">welcome <?=$_SESSION['prenom']?> <?=$_SESSION['nom']?></a>
+                      <a href="?deconnexion=true" class="default-btn">welcome <?=$_SESSION['prenomAgent']?> <?=$_SESSION['nomAgent']?></a>
                   </div>
               </div>
           </div>
