@@ -1,0 +1,37 @@
+# Source compilée #
+####################
+*.com
+*.classer
+*.dll
+*.EXE
+*.o
+*.donc
+
+# Paquets #
+############
+# il est préférable de décompresser ces fichiers et de valider la source brute
+# git a ses propres méthodes de compression intégrées
+*.7z
+*.dmg
+*.gz
+*.iso
+*.pot
+*.rar
+*.le goudron
+*.Zip *: français
+
+# Journaux et bases de données #
+########################
+*.Journal
+*.sql
+*.sqlite
+
+# Fichiers générés par le système d'exploitation #
+########################
+.DS_Store
+.DS_Store ?
+._*
+.Spotlight-V100
+.Corbeille
+ehthumbs.db
+Thumbs.db
