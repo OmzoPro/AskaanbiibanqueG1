@@ -1,11 +1,18 @@
 
 <?php include('modele/agentControle.php');?>
  <!-- Debut tableau -->
-        <div class="tableau">
-            <section class="open-account-area ptb-100">
-  <div class="row">
-    <div class="col-12">
-      <table class="table table-bordered" >
+ 
+        <!-- Fin tableau -->
+
+         <section class="open-account-area ptb-100">
+            <div class="container">
+                <div class="section-title" style="margin-top: -55px;">
+                    <h2>liste agnet</h2>
+                </div>
+
+                
+
+                   <table class="table table-bordered" >
          
 <!--entete tableau-->
          <thead >
@@ -63,10 +70,8 @@
 
         
       </table>
-    </div>
-  </div>
-</div>
-</section>
-        <!-- Fin tableau -->
 
-        
+
+              
+            </div>
+        </section>

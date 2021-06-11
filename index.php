@@ -52,9 +52,6 @@
 		else if($_GET['p']=='virement'){
 			include('view/virement.php');
 		}
-		else if($_GET['p']=='editClient'){
-			include('view/editClient.php');
-		}
 		else{
 			include'view/404.php';
 		}

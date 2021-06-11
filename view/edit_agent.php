@@ -11,7 +11,7 @@ require 'controler/editAgent.php';
  <div class="container">
   <div class="card mt-5">
     <div class="card-header">
-      <h2>modification AGNETS</h2>
+      <h2>Update person</h2>
     </div>
     <div class="card-body">
       <?php if(!empty($message)): ?>

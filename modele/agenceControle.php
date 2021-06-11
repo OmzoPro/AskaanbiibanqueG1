@@ -13,6 +13,16 @@ class AgenceControle extends Database{
 		}
 	}
 
+	public function deleteAgent(){
+$idAgent = $_GET['id'];
+$sql = 'DELETE FROM agent WHERE idAgent=:idAgent';
+$stmt= $this->connect()->prepare($sql);
+    $stmt->execute();
+    while ($result = $stmt->fetchAll()) {
+			return $result;
+		}
+	}
+
 public function addAgences(Agence $agence){
 		$sql="INSERT INTO agence(nomAgence,email,adresse,telephone,dateCreation)
 		VALUES(:nomAgence,:email,:adresse,:telephone,:dateCreation);";

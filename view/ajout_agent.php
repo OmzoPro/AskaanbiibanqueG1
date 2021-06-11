@@ -108,7 +108,7 @@
 
                             <div class="col-lg-12">
                                 <div class="banner-form-btn">
-                                    <input type="hidden" name="id_agent" value="<?=$_SESSION['idAgent']?> " class="form-control">
+                                    
                                     <button type="submit" class="btn btn-primary" name="ajouter">Ajouter</button>
                                 </div>
                             </div>

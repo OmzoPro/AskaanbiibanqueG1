@@ -104,7 +104,7 @@ class Agent{
 		$this->grade = $grade;
 	}
 	public function setTelephone($telephoneAgent){
-		$this->telephoneAgent = $telephone;
+		$this->telephoneAgent = $telephoneAgent;
 	}
 
 	public function setDateNaissance($naissanceAgent){

@@ -1,29 +1,36 @@
 <?php 
 class Client{
+	
 	public $nom;
 	public $prenom;
-	public $naissance;
-	public $sexe;
 	public $adresse;
 	public $telephone;
+	public $naissance;
 	public $email;
-	public $dateCreation;
+	public $sexe;
 	public $cni;
+	public $dateCreation;
+	
+	
+
     /***
      *contructeur avec les parametres des variables declares 
      */
-	function __construct( $nom, $prenom, $naissance, $sexe, $adresse, $telephone, $email, $dateCreation, $cni){
-		
-		$this->nom = $nom;
+	function __construct($nom,$prenom,$adresse,$telephone,$email,$naissance,$dateCreation,$cni,$sexe){
+	    $this->nom = $nom;
 		$this->prenom = $prenom;
-		$this->naissance = $naissance;
-		$this->sexe = $sexe;
+		
 		$this->adresse = $adresse;
 		$this->telephone = $telephone;
 		$this->email = $email;
+		$this->naissance = $naissance;
 		$this->dateCreation = $dateCreation;
 		$this->cni = $cni;
+		$this->sexe = $sexe;
 		
+
+		
+
 	}
 
 	/***
@@ -38,37 +45,37 @@ class Client{
 		return $this->prenom;
 	}
 
-	public function getNaissance(){
-		return $this->naissance;
-	}
-
-	public function getSexe(){
-		return $this->sexe;
+	public function getEmail(){
+		return $this->email;
 	}
 
 	public function getAdresse(){
 		return $this->adresse;
 	}
 
-	public function getTelephone(){
-		return $this->telephone;
+	public function getSexe(){
+		return $this->sexe;
 	}
-
-	public function getEmail(){
-		return $this->email;
-	}
-
-	public function getDateCreation(){
-		return $this->naissance;
-	}
-
 	public function getCni(){
 		return $this->cni;
 	}
-	
+
+	public function getTelephone(){
+		return $this->telephone;
+	}
+	public function getDateNaissance(){
+		return $this->naissance;
+	}
+
+	public function getDateCreation(){
+		return $this->dateCreation;
+	}
+
 	/***
      *setters
      */
+
+
 	public function setNom($nom){
 		$this->nom = $nom;
 	}
@@ -77,34 +84,32 @@ class Client{
 		$this->prenom = $prenom;
 	}
 
-	public function setNaissance($naissance){
-		$this->naissance = $naissance;
-	}
-
-	public function setSexe($sexe){
-		$this->sexe = $sexe;
+	public function setEmail($email){
+		$this->email = $email;
 	}
 
 	public function setAdresse($adresse){
 		$this->adresse = $adresse;
 	}
-
+	
+	public function setSexe($sexe){
+		$this->sexe = $sexe;
+	}
+	public function setCni($cni){
+		$this->cni = $cni;
+	}
 	public function setTelephone($telephone){
 		$this->telephone = $telephone;
 	}
 
-	public function setEmail($email){
-		$this->email = $email;
+	public function setDateNaissance($naissance){
+		$this->naissance = $naissance;
 	}
-
 	public function setDateCreation($dateCreation){
 		$this->dateCreation = $dateCreation;
 	}
-
-	public function setCni($cni){
-		$this->cni = $cni;
-	}
 	
 
+
 }
-?>
+ ?>
