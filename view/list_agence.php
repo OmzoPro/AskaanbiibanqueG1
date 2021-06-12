@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 <?php include('modele/agenceControle.php');?>
  <!-- Debut tableau -->
@@ -61,64 +60,10 @@
 
 
         
-=======
-<!-- Debut tableau -->
-        <div class="tableau">
-  <div class="row">
-    <div class="col-12">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">nom agence</th>
-            <th scope="col">chef agence</th>
-            <th scope="col">adresse</th>
-            <th scope="col">contact</th>
-            <th scope="col">action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-            <a href="#"><span class="material-icons">info</span></a>
-            <a href="#"><span class="material-icons">edit_off</span></a>
-            <a href="#"><span class="material-icons">delete</span></i></a>
-        </td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-                <a href="#"><span class="material-icons">info</span></a>
-                <a href="#"><span class="material-icons">edit_off</span></a>
-                <a href="#"><span class="material-icons">delete</span></i></a>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-            <a href="#"><span class="material-icons">info</span></a>
-            <a href="#"><span class="material-icons">edit_off</span></a>
-            <a href="#"><span class="material-icons">delete</span></i></a>
-            </td>
-          </tr>
-        </tbody>
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1
       </table>
     </div>
   </div>
 </div>
         <!-- Fin tableau -->
-<<<<<<< HEAD
 
         
-=======
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1

@@ -17,13 +17,6 @@ if (isset($_GET['type_'])) {
             ?>
             <h2>Retrait d'argent</h2>
             <?php
-<<<<<<< HEAD
-=======
-            }else if ($type_operation=='virement') {
-            ?>
-            <h2>Operation de virement</h2>
-            <?php
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1
             }
             ?>
         </div>
@@ -34,10 +27,6 @@ if (isset($_GET['type_'])) {
                         <div class="form-group">
                             <label class="">Numéro de Compte du client</label>
                             <input type="text" disabled="" value="<?=$_SESSION['numCompte']?> " class="form-control">
-<<<<<<< HEAD
-=======
-                            <input type="hidden" name="id_compte" value="<?=$_SESSION['idCompte']?> " class="form-control">
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -70,11 +59,7 @@ if (isset($_GET['type_'])) {
                         <div class="col-lg-12 col-md-12">
                         <div class="form-group">
                             <label>Montant à deposer</label>
-<<<<<<< HEAD
                             <input type="number" name="montant" class="form-control" placeholder="Montant">
-=======
-                            <input type="number" name="montantOperation" class="form-control" placeholder="Montant">
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1
                             <input type="hidden" name="type" value="depot" class="form-control">
                         </div>
                         </div>
@@ -84,18 +69,13 @@ if (isset($_GET['type_'])) {
                         <div class="col-lg-12 col-md-12">
                         <div class="form-group">
                             <label>Montant à Retirer</label>
-<<<<<<< HEAD
                             <input type="number" name="montant" class="form-control" placeholder="Montant">
-=======
-                            <input type="number" name="montantOperation" class="form-control" placeholder="Montant">
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1
                             <input type="hidden" name="type" value="retrait" class="form-control">
                         </div>
                         </div>
                         <?php
                         }else if ($type_operation=='virement') {
                         ?>
-<<<<<<< HEAD
                         <div class="col-lg-6 col-md-6">
                             <div class="form-group">
                                 <label>Prénom du client destinataire</label>
@@ -106,48 +86,19 @@ if (isset($_GET['type_'])) {
                             <div class="form-group">
                                 <label>Nom du client destinataire</label>
                                 <input type="text" disabled="" value="<?=$_SESSION['nom2']?> " class="form-control">
-=======
-                        <div class="col-lg-12 col-md-12">
-                            <div class="form-group">
-                                <label><center><h1>Coordonnées du destinataire</h1></center></label>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-12 col-md-12">
-                            <div class="form-group">
-                                <label>Numero de Compte du destinataire</label>
-                                <input type="text" disabled="" value="<?=$_SESSION['numCompte2']?> " class="form-control">
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6">
                             <div class="form-group">
-<<<<<<< HEAD
                                 <label>Montant à envoyer</label>
                                 <input type="number" name="montant" class="form-control" placeholder="Montant">
                                 <input type="hidden" name="type" value="retrait" class="form-control">
-=======
-                                <label>Prénom du client destinataire</label>
-                                <input type="text" disabled="" value="<?=$_SESSION['prenomCompte2']?> " class="form-control">
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6">
                             <div class="form-group">
-<<<<<<< HEAD
                                 <label>Compte à envoyer</label>
                                 <input type="number" name="montant" class="form-control" placeholder="Numero de Compte">
-=======
-                                <label>Nom du client destinataire</label>
-                                <input type="text" disabled="" value="<?=$_SESSION['nomCompte2']?> " class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="form-group">
-                                <label>Montant du virement</label>
-                                <input type="number" name="montantOperation" class="form-control" placeholder="Montant">
-                                <input type="hidden" name="type" value="virement" class="form-control">
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1
                             </div>
                         </div>
                         <?php
@@ -156,30 +107,11 @@ if (isset($_GET['type_'])) {
 
                     <div class="col-lg-12">
                         <div class="banner-form-btn">
-<<<<<<< HEAD
                             <input type="hidden" name="id_client" value="<?=$_SESSION['idClient']?> " class="form-control">
                             <input type="hidden" name="id_agent" value="<?=$_SESSION['personne']?> " class="form-control">
                             <button type="submit" name="depret" class="default-btn">
                                 Envoyer
                             </button>
-=======
-                            <?php
-                                if (($type_operation=='depot') OR ($type_operation=='retrait')) {
-                            ?>
-                            <button type="submit" name="depot_retrait" class="default-btn">
-                                Envoyer
-                            </button>
-                            <?php
-                                }elseif ($type_operation=='virement') {
-                            ?>
-                            <input type="hidden" name="destinataire" value="<?=$_SESSION['idCompte2']?> " class="form-control">
-                            <button type="submit" name="virement" class="default-btn">
-                                Envoyer
-                            </button>
-                            <?php
-                                }
-                            ?>
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1
                         </div>
                     </div>
                 </div>

@@ -28,15 +28,15 @@
 		else if($_GET['p']=='ajout_agence'){
 			include('view/ajout_agence.php');
 		}
-<<<<<<< HEAD
 		else if($_GET['p']=='edit_agent'){
 			include('view/edit_agent.php');
+		}
+		else if($_GET['p']=='editClient'){
+			include('view/editClient.php');
 		}
 		else if($_GET['p']=='edit_agence'){
 			include('view/edit_agence.php');
 		}
-=======
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1
 		else if($_GET['p']=='list_agence'){
 			include('view/list_agence.php');
 		}
@@ -46,7 +46,6 @@
 		else if($_GET['p']=='operation2'){
 			include('view/operation2.php');
 		}
-<<<<<<< HEAD
 		else if($_GET['p']=='depot'){
 			include('view/depot.php');
 		}
@@ -55,10 +54,6 @@
 		}
 		else if($_GET['p']=='virement'){
 			include('view/virement.php');
-=======
-		else if($_GET['p']=='resultat'){
-			include('view/resultat.php');
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1
 		}
 		else{
 			include'view/404.php';

@@ -1,6 +1,5 @@
 <?php 
 class Agent{
-<<<<<<< HEAD
 	public $idAgence;
 	public $nomAgent;
 	public $prenomAgent;
@@ -13,23 +12,10 @@ class Agent{
 	public $dateCreaAgent;
 	
 	
-=======
-	private $idAgent;
-	private $idAgence;
-	private $nom;
-	private $prenom;
-	private $adresse;
-	private $telephone;
-	private $naissance;
-	private $dateCreation;
-	private $sexe;
-	private $email;
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1
 
     /***
      *contructeur avec les parametres des variables declares 
      */
-<<<<<<< HEAD
 	function __construct($idAgence,$nomAgent,$prenomAgent,$emailAgent,$adresseAgent,$sexe,$grade,$telephoneAgent,$naissanceAgent,$dateCreaAgent){
 
 	    $this->idAgence = $idAgence;
@@ -46,35 +32,15 @@ class Agent{
 
 		
 
-=======
-	function __construct($idAgent,$idAgence,$nom,$prenom,$adresse,$telephone,$naissance,$dateCreation,$sexe,$email){
-		$this->idAgent = $idAgent;
-		$this->idAgence = $idAgence;
-		$this->nom = $nom;
-		$this->prenom = $prenom;
-		$this->adresse = $adresse;
-		$this->telephone = $telephone;
-		$this->naissance = $naissance;
-		$this->dateCreation = $dateCreation;
-		$this->sexe = $sexe;
-		$this->email = $email;
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1
 	}
 
 	/***
      *getters
      */
-<<<<<<< HEAD
-=======
-	public function getIdAgent(){
-		return $this->idAgent;
-	}
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1
 	public function getIdAgence(){
 		return $this->idAgence;
 	}
 	public function getNom(){
-<<<<<<< HEAD
 		return $this->nomAgent;
 	}
 
@@ -111,49 +77,10 @@ class Agent{
 	/***
      *setters
      */
-=======
-		return $this->nom;
-	}
-	public function getPrenom(){
-		return $this->prenom;
-	}
-
-	public function getAdresse(){
-		return $this->adresse;
-	}
-
-	public function getTelephone(){
-		return $this->telephone;
-	}
-
-	public function getNaissance(){
-		return $this->naissance;
-	}
-
-	public function getDateCreation(){
-		return $this->dateCreation;
-	}
-
-	public function getSexe(){
-		return $this->sexe;
-	}
-
-	public function getEmail(){
-		return $this->email;
-	}
-	
-	/***
-     *setters
-     */
-	public function setIdAgent($idAgent){
-		$this->idAgent = $idAgent;
-	}
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1
 
 	public function setIdAgence($idAgence){
 		$this->idAgence = $idAgence;
 	}
-<<<<<<< HEAD
 	public function setNom($nomAgent){
 		$this->nomAgent = $nomAgent;
 	}
@@ -191,40 +118,3 @@ class Agent{
 
 }
  ?>
-=======
-
-	public function setNom($nom){
-		$this->nom = $nom;
-	}
-
-	public function setPrenom($prenom){
-		$this->prenom = $prenom;
-	}
-
-	public function setAdresse($adresse){
-		$this->adresse = $adresse;
-	}
-
-	public function setTelephone($telephone){
-		$this->telephone = $telephone;
-	}
-
-	public function setNaissance($naissance){
-		$this->naissance = $naissance;
-	}
-
-	public function setDateCreation($dateCreation){
-		$this->dateCreation = $dateCreation;
-	}
-
-	public function setSexe($sexe){
-		$this->sexe = $sexe;
-	}
-
-	public function setEmail($email){
-		$this->email = $email;
-	}
-
-}
-?>
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1

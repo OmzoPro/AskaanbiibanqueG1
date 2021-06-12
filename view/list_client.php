@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 <?php include('modele/clientControle.php');?>
  <!-- Debut tableau -->
@@ -52,9 +51,9 @@
         <th>
            
         <a href=""><span class="material-icons">info</span></a>
-        <a href="#&id=<?= $Agents['idClient'] ?>" > <span class="material-icons">edit_off</span></a>
+        <a href="?p=editClient&id=<?= $Agents['idClient'] ?>" > <span class="material-icons">edit_off</span></a>
 
-        <a onclick="return confirm('Are you sure you want to delete this entry?')" href="#&id=<?= $Agents['idClient'] ?>" ><span class="material-icons">delete</span></a>
+        <a onclick="return confirm('Are you sure you want to delete this entry?')" href="controler/delete_client.php?id=<?= $Agents['idClient'] ?>" ><span class="material-icons">delete</span></a>
         
         </th>
         
@@ -78,59 +77,3 @@
               
             </div>
         </section>
-=======
-  <!-- Debut tableau -->
-        <div class="tableau">
-  <div class="row">
-    <div class="col-12">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">nom client</th>
-            <th scope="col">N° Compte</th>
-            <th scope="col">Montant</th>
-            <th scope="col">type compte</th>
-            <th scope="col">action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-            <a href="#"><span class="material-icons">info</span></a>
-            <a href="#"><span class="material-icons">edit_off</span></a>
-            <a href="#"><span class="material-icons">delete</span></i></a>
-        </td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-                <a href="#"><span class="material-icons">info</span></a>
-                <a href="#"><span class="material-icons">edit_off</span></a>
-                <a href="#"><span class="material-icons">delete</span></i></a>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-            <a href="#"><span class="material-icons">info</span></a>
-            <a href="#"><span class="material-icons">edit_off</span></a>
-            <a href="#"><span class="material-icons">delete</span></i></a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-        <!-- Fin tableau -->
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1

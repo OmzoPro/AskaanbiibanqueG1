@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-<?php session_start(); ?>
-<?php
-if (isset($_GET['deconnexion'])) {
-  session_unset();
-=======
 <?php
 session_start();
 if (isset($_GET['deconnexion'])) {
@@ -11,9 +5,8 @@ if (isset($_GET['deconnexion'])) {
   $_SESSION['role']="";
   $_SESSION['prenomAgent']="";
   $_SESSION['nomAgent']="";
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1
   header("location:index.php?p=login");
-}
+}   
 ?>
 <div class="main-navbar">
   <div class="container">
@@ -128,11 +121,7 @@ if (isset($_GET['deconnexion'])) {
 
               <div class="others-options d-flex align-items-center">
                   <div class="option-item">
-<<<<<<< HEAD
                       <a href="?deconnexion=true" class="default-btn">welcome <?=$_SESSION['prenom']?> <?=$_SESSION['nom']?></a>
-=======
-                      <a href="?deconnexion=true" class="default-btn">welcome <?=$_SESSION['prenomAgent']?> <?=$_SESSION['nomAgent']?></a>
->>>>>>> 30e7639df9d7e6ad6384ec089392eedc8134e7e1
                   </div>
               </div>
           </div>
