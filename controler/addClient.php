@@ -2,8 +2,8 @@
 //injection de dependance
 include('../modele/clientControle.php');
 include('../modele/client.php');
-include('../modele/compteControle.php');
 include('../modele/compte.php');
+include('../modele/user.php');
 
 
 /*
@@ -22,14 +22,20 @@ if (isset($_POST['ajouter'])) {
 	$telephone = $_POST['telephone'];
 	$naissance = $_POST['dateNaissance'];
 	$dateCreation = $_POST['dateCreation'];
+
 	$numCompte = rand();
 	$typeCompte = $_POST['typeCompte'];
 	$solde = $_POST['solde'];
+
+	$mon = $_POST['mon'];
+	$password = $_POST['password'];
+	$grade = $_POST['grade'];
 	
 	$Client = new Client($nom,$prenom,$adresse,$telephone,$email,$naissance,$dateCreation,$cni,$sexe);
 	$Compte = new Compte($numCompte,$typeCompte,$solde);
+	$user = new User($mon,$password,$grade);
 	
-	$clientController->addClients($Client,$Compte);
+	$clientController->addClients($Client,$Compte,$user);
 
 	
 	

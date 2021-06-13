@@ -93,23 +93,35 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-12">
-                                <h3>Address</h3>
-
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Adresse" name="adresse">
-                                        </div>
+                           
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label>Adresse</label>
+                                        <input type="text" class="form-control" placeholder="fo deuk" name="adresse">
                                     </div>
+                                </div>
 
+                              <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Login</label>
+                                    <input type="text" class="form-control" placeholder="Login" name="mon">
+                                </div>
+                            </div>
+
+                            
+                           
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>password</label>
+                                    <input type="Password" class="form-control" placeholder="password" name="password">
                                 </div>
                             </div>
 
                             <div class="col-lg-12">
                                 <div class="banner-form-btn">
                                     
-                                    <button type="submit" class="btn btn-primary" name="ajouter">Ajouter</button>
+           <button type="submit" class="btn btn-primary" name="ajouter" style="background-color: red;">Ajouter</button>
                                 </div>
                             </div>
                         </div>
@@ -117,5 +129,7 @@
                 </div>
             </div>
         </section>
+
+       
         <!-- End Open Account Banner -->
         

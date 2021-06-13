@@ -14,10 +14,8 @@
 
                 <div class="open-account-form">
                     <form action="controler/addClient.php" method="POST">
-                        <div class="row">
 
-                                
-                            
+                        <div class="row"> 
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
                                     <label>Nom</label>
@@ -25,8 +23,7 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">
+                                                            <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>Prenom</label>
                                         <input type="text" class="form-control" placeholder="Prenom" name="prenom">
@@ -78,24 +75,13 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-12">
-                                <h3>Address</h3>
-
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Adresse" name="adresse">
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                                                       <div class="col-lg-6 col-md-6">
+                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
-                                    <label>N° Compte</label>
-                                    <input type="hidden" class="form-control" placeholder="N° Compte" name="numCompte">
+                            <label>Adresse</label>
+                            <input type="text" class="form-control" placeholder="adresse" name="adresse">
                                 </div>
                             </div>
+                                                       
 
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
@@ -110,14 +96,42 @@
                                     <input type="number" class="form-control" placeholder="Solde" name="solde">
                                 </div>
                             </div>
+                             <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>mon</label>
+                                    <input type="text" class="form-control" placeholder="mon" name="mon">
+                                </div>
+                            </div>
 
+                            
+                           
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>password</label>
+                                    <input type="Password" class="form-control" placeholder="mot de passe" name="password">
+                                </div>
+                            </div>
+
+                            
+
+                           
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>role</label>
+                                    <select name="role">
+                                        <option value="client">client</option>
+                                    </select>
+                                </div>
+                            </div>
 
 
 
                             <div class="col-lg-12">
                                 <div class="banner-form-btn">
+                                    <input type="hidden" class="form-control" placeholder="N° Compte" name="numCompte">
                                   
-                                    <button type="submit" class="btn btn-primary" name="ajouter">Ajouter</button>
+                                    <button type="submit" class="btn btn-primary" name="ajouter" style="background-color: red;">Ajouter</button>
                                 </div>
                             </div>
                         </div>

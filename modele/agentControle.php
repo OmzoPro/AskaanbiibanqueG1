@@ -22,7 +22,7 @@ while ($result = $stmt->fetchAll()) {
       return $result;
 }
 	}
-public function addAgents(Agent $agent){
+public function addAgents(Agent $agent ,User $user){
 		$sql="INSERT INTO agent(idAgence,nom,prenom,email,adresse,sexe,grade,telephone,naissance,dateCreation)
 		VALUES(:idAgence,:nomAgent,:prenomAgent,:emailAgent,:adresseAgent,:sexe,:grade,:telephoneAgent,:naissanceAgent,:dateCreaAgent);";
 		$stmt= $this->connect()->prepare($sql);
@@ -36,38 +36,34 @@ public function addAgents(Agent $agent){
 		$stmt->bindValue(':telephoneAgent', $agent->getTelephone(), PDO::PARAM_STR);
 		$stmt->bindValue(':naissanceAgent', $agent->getDateNaissance(), PDO::PARAM_STR);
 		$stmt->bindValue(':dateCreaAgent', $agent->getDateCreation(), PDO::PARAM_STR);
-		
-		
-
 		$stmt->execute();
+
+		$sql3="SELECT max(idAgent) from agent";
+		$stmt3=$this->connect()->prepare($sql3);
+		$stmt3->execute();
+		$lastidagent=$stmt3->fetchColumn();
+
+		$sql2="INSERT INTO user(idAgent,login,password,role) VALUES(:idAgent,:login,:pass,:role)";
+		
+		$stmt2= $this->connect()->prepare($sql2);
+		$stmt2->bindValue(':idAgent', $lastidagent, PDO::PARAM_STR);
+		$stmt2->bindValue(':login', $user->getLogin(), PDO::PARAM_STR);
+		$stmt2->bindValue(':pass', $user->getPassword(), PDO::PARAM_STR);
+		$stmt2->bindValue(':role', $user->getRole(), PDO::PARAM_STR);
+		$stmt2->execute();
+		
 		header("location: {$_SERVER['HTTP_REFERER']}");
 	}
-	/**
-	 * fonction pour supprimer agnent avec un  id
-	 * public function deleteAgents($id){
-		$sql = $this->connect()->prepare("DELETE FROM personnes WHERE idPersonne = :idPersonne;");
-		$sql->bindValue(':idPersonne', $id, PDO::PARAM_STR);
-		return $sql->execute();
-	 **/
 	
+	
+	
+
+
+
+
+
 	}
-	/**
-	 * fonction pour s'authentifier avec un  roles précis
-	 * public function authentication($email,$password){
-		$sql="SELECT * FROM personnes  WHERE  email=:email AND password=:password";
-		$stmt  =$this->connect()->prepare($sql);
-        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-  $stmt->bindValue(':password', $password, PDO::PARAM_STR);
-            $stmt->execute();
-           $resultat = $stmt->fetch(PDO::FETCH_ASSOC); 
-           //session_start();
-          // $role = $resultat['role'];
-          // $_SESSION['roleAuth'] = $role;
-          
-           	
-			return $resultat;
-}
-		 **/
+	
 	
 	
 

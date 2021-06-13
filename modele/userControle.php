@@ -5,7 +5,7 @@ class UseControle extends Database{
 	 * fonction pour recuperer tous les enregistrements de user
 	 **/
 	public function getUsers(){
-		$sql="SELECT * FROM personnes";
+		$sql="SELECT * FROM user";
 		$stmt= $this->connect()->prepare($sql);
 		$stmt->execute();
 		while ($result = $stmt->fetchAll()) {
@@ -16,15 +16,14 @@ class UseControle extends Database{
 	 * fonction pour inserer les users a la base de donnée
 	 **/
 	public function addUsers(User $user){
-		$sql="INSERT INTO personnes(nom,prenom,email,passWord) VALUES(:prenom,:nom,:login,:pass)";
-		$stmt= $this->connect()->prepare($sql);
-		$stmt->bindValue(':nom', $user->getNom(), PDO::PARAM_STR);
-		$stmt->bindValue(':prenom', $user->getPrenom(), PDO::PARAM_STR);
-		$stmt->bindValue(':login', $user->getLogin(), PDO::PARAM_STR);
-		$stmt->bindValue(':pass', $user->getPassword(), PDO::PARAM_STR);
-		$stmt->execute();
-		header("location: {$_SERVER['HTTP_REFERER']}");
-	}
+        $sql="INSERT INTO user(mon,password,role) VALUES(:mon,:pass,:role)";
+        $stmt= $this->connect()->prepare($sql);
+        $stmt->bindValue(':mon', $user->getMon(), PDO::PARAM_STR);
+        $stmt->bindValue(':pass', $user->getPassword(), PDO::PARAM_STR);
+        $stmt->bindValue(':role', $user->getRole(), PDO::PARAM_STR);
+        $stmt->execute();
+        header("location: {$_SERVER['HTTP_REFERER']}");
+    }
 	/**
 	 * fonction pour s'authentifier avec un  roles précis
 	 **/

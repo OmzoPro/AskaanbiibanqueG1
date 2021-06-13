@@ -2,6 +2,7 @@
 //injection de dependance
 include('../modele/agentControle.php');
 include('../modele/agent.php');
+include('../modele/user.php');
 /*
 instance de la classe UseControle 
 et creation de l'objet qui s'appele userController de la classe UseControle
@@ -19,14 +20,21 @@ if (isset($_POST['ajouter'])) {
 	$telephoneAgent = $_POST['telephone'];
 	$naissanceAgent = $_POST['dateNaissance'];
 	$dateCreaAgent = $_POST['dateCreation'];
+
+
+	$mon = $_POST['mon'];
+	$password = $_POST['password'];
 	
 	
-	
-	//instance de classe User
+
 	$agent = new Agent($idAgence,$nomAgent,$prenomAgent,$emailAgent,$adresseAgent,$sexe,$grade,$telephoneAgent,$naissanceAgent,$dateCreaAgent);
+	$user = new User($mon,$password,$grade);
+	
+
+	
 
 	//appele a la fonction addUser de la useControle qui permet d'inserer des users a la base de donnée
-	$agentController->addAgents($agent);
+	$agentController->addAgents($agent,$user);
 
 	
 
