@@ -19,6 +19,15 @@
 		else if($_GET['p']=='list_client'){
 			include('view/list_client.php');
 		}
+		else if($_GET['p']=='detail_agence'){
+			include('view/detail_agence.php');
+		}
+		else if($_GET['p']=='detail_client'){
+			include('view/detail_client.php');
+		}
+		else if($_GET['p']=='detail_agent'){
+			include('view/detail_agent.php');
+		}
 		else if($_GET['p']=='ajout_agent'){
 			include('view/ajout_agent.php');
 		}

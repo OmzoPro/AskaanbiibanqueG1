@@ -93,7 +93,7 @@
                                                        <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
                                     <label>N° Compte</label>
-                                    <input type="number" class="form-control" placeholder="N° Compte" name="numCompte">
+                                    <input type="hidden" class="form-control" placeholder="N° Compte" name="numCompte">
                                 </div>
                             </div>
 

@@ -22,7 +22,7 @@ if (isset($_POST['ajouter'])) {
 	$telephone = $_POST['telephone'];
 	$naissance = $_POST['dateNaissance'];
 	$dateCreation = $_POST['dateCreation'];
-	$numCompte = $_POST['numCompte'];
+	$numCompte = rand();
 	$typeCompte = $_POST['typeCompte'];
 	$solde = $_POST['solde'];
 	

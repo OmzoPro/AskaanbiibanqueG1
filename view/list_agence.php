@@ -31,6 +31,7 @@
        <?php $agenceController = new AgenceControle(); ?>
        <?php if($agenceController->getAgences()) : ?>
         <?php foreach($agenceController->getAgences() as $Agences) : ?>
+          
       <tr>
         <th><?= $Agences['nomAgence'] ?></th>
         <th><?= $Agences['email'] ?></th>
@@ -38,11 +39,12 @@
         <th><?= $Agences['adresse'] ?></th>
         <th><?= $Agences['dateCreation'] ?></th>
         <th>
-           
-        <a href=""><span class="material-icons">info</span></a>
-        <a href="?p=edit_agence&id=<?= $Agences['idAgence'] ?>" > <span class="material-icons">edit_off</span></a>
 
-        <a onclick="return confirm('Are you sure you want to delete this entry?')" href="controler/delete_agence.php?id=<?= $Agences['idAgence'] ?>" ><span class="material-icons">delete</span></a>
+           <a href="?p=detail_agence&id=<?= $Agences['idAgence'] ?>" > <span class="material-icons">info</span></a>
+            
+            <a href="?p=edit_agence&id=<?= $Agences['idAgence'] ?>" > <span class="material-icons">edit_off</span></a>
+            
+            <a onclick="return confirm('Are you sure you want to delete this entry?')" href="controler/delete_agence.php?id=<?= $Agences['idAgence'] ?>" ><span class="material-icons">delete</span></a>
         
         </th>
         

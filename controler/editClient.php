@@ -17,7 +17,7 @@ if (isset ($_POST['nom'])  && isset($_POST['prenom']) && isset ($_POST['naissanc
   $cni = $_POST['cni'];
   $sql = 'UPDATE client SET nom=:nom, prenom=:prenom, naissance=:naissance, sexe=:sexe, adresse=:adresse, telephone=:telephone,email=:email, dateCreation=:dateCreation, cni=:cni WHERE idClient=:idClient';
   $statement = $connection->prepare($sql);
-  if ($statement->execute([':idClient'=>$idClient,':nom'=>$nom, ':prenom'=>$prenom, ':naissance'=>$naissance, ':sexe'=>$sexe, ':adresse'=>$adresse, ':telephone'=>$telephone, ':email'=>$email, ':dateCreation'=>$dateCreation, ':cni'=>$cni]));{}
+  if ($statement->execute([':idClient'=>$idClient,':nom'=>$nom, ':prenom'=>$prenom, ':naissance'=>$naissance, ':sexe'=>$sexe, ':adresse'=>$adresse, ':telephone'=>$telephone, ':email'=>$email, ':dateCreation'=>$dateCreation, ':cni'=>$cni]));
 
 
 

@@ -5,7 +5,7 @@ class ClientControle extends Database{
 	 * fonction pour recuperer tous les enregistrements de user
 	 **/
 	public function getClients(){
-		$sql="SELECT * FROM client";
+		$sql="SELECT * from client p, compte c where c.idClient=p.idClient;";
 		$stmt= $this->connect()->prepare($sql);
 		$stmt->execute();
 		while ($result = $stmt->fetchAll()) {

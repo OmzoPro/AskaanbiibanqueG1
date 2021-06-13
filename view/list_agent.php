@@ -48,7 +48,7 @@
         <th><?= $Agents['nomAgence'] ?></th>
         <th>
            
-        <a href=""><span class="material-icons">info</span></a>
+        <a href="?p=detail_agent&id=<?= $Agents['idAgent'] ?>" > <span class="material-icons">info</span></a>
         <a href="?p=edit_agent&id=<?= $Agents['idAgent'] ?>" > <span class="material-icons">edit_off</span></a>
 
         <a onclick="return confirm('Are you sure you want to delete this entry?')" href="controler/delete_agent.php?id=<?= $Agents['idAgent'] ?>" ><span class="material-icons">delete</span></a>

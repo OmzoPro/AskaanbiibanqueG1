@@ -17,7 +17,7 @@ if (isset ($_POST['nomAgent']) && isset($_POST['telephoneAgent']) && isset($_POS
   $statement = $connection->prepare($sql);
   if ($statement->execute([':nomAgent' => $nomAgent, ':emailAgent' => $emailAgent, ':idAgent' => $idAgent,
     ':telephoneAgent' => $telephoneAgent, ':dateCreaAgent' => $dateCreaAgent, ':adresseAgent' => $adresseAgent])) {
-    //header("Location: /");
+    header("location:javascript://history.go(-1)");
   }
 
 

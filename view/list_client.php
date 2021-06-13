@@ -7,8 +7,8 @@
 
          <section class="open-account-area ptb-100">
             <div class="container">
-                <div class="section-title" style="margin-top: -55px;">
-                    <h2>liste agnet</h2>
+                <div class="section-title" style="margin-top: 55px;">
+                    <h2>liste des clients</h2>
                 </div>
 
                 
@@ -22,7 +22,7 @@
         <th>Nom</th>
         <th>Prenom</th>
         <th>telephone</th>
-        <th>SEXE</th>
+        <th>N° compte</th>
         <th>adresse</th>
         <th>email</th>
 
@@ -45,12 +45,12 @@
         <th><?= $Agents['nom'] ?></th>
         <th><?= $Agents['prenom'] ?></th>
         <th><?= $Agents['telephone'] ?></th>
-        <th><?= $Agents['sexe'] ?></th>
+        <th><?= $Agents['numCompte'] ?></th>
         <th><?= $Agents['adresse'] ?></th>
         <th><?= $Agents['email'] ?></th>
         <th>
            
-        <a href=""><span class="material-icons">info</span></a>
+        <a href="?p=detail_client&id=<?= $Agents['idClient'] ?>" > <span class="material-icons">info</span></a>
         <a href="?p=editClient&id=<?= $Agents['idClient'] ?>" > <span class="material-icons">edit_off</span></a>
 
         <a onclick="return confirm('Are you sure you want to delete this entry?')" href="controler/delete_client.php?id=<?= $Agents['idClient'] ?>" ><span class="material-icons">delete</span></a>
