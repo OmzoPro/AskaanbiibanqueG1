@@ -80,11 +80,10 @@ class UseControle extends Database{
 	if ($role=="client") {
 	$sql="SELECT * FROM client WHERE idClient=:idClient";
 	$stmt = $this->connect()->prepare($sql);
-    $stmt->bindValue(':idClient', $idClient, PDO::PARAM_STR);
-    $stmt->execute();
-    $resultat = $stmt->fetch(PDO::FETCH_ASSOC); 
-
-      
+   $stmt->bindValue(':idClient', $idClient, PDO::PARAM_STR);
+   $stmt->execute();
+   $resultat = $stmt->fetch(PDO::FETCH_ASSOC); 
+   
        $_SESSION['idClient'] = $resultat['idClient'];
        $_SESSION['nom'] = $resultat['nom'];
        $_SESSION['prenom'] = $resultat['prenom'];
@@ -95,9 +94,17 @@ class UseControle extends Database{
        $_SESSION['sexe'] = $resultat['sexe'];
        $_SESSION['dateCreation'] = $resultat['dateCreation'];
        $_SESSION['cni'] = $resultat['cni'];
+
+       	$sql="SELECT * FROM compte WHERE idClient=:idClient";
+			$stmt = $this->connect()->prepare($sql);
+   		$stmt->bindValue(':idClient', $idClient, PDO::PARAM_STR);
+   		$stmt->execute();
+   		$resultat = $stmt->fetch(PDO::FETCH_ASSOC); 
+   
+       $_SESSION['solde'] = $resultat['solde'];
   
-		}
-		return $resultat;
+		}	
+	return $resultat;
 	}
 
 }

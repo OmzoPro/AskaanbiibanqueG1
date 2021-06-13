@@ -47,25 +47,22 @@ if(isset($_POST['depot_retrait'])){
 		$soldeapres = $soldeavant-$montant;
 	}
 
-	$idCompte = $_POST['id_compte'];
 	$agent = $_SESSION['idAgent'];
 	$date_ope = date('Y-m-d H:i:s');
 	$solde=$soldeapres;
 
 	$comptedest='';
 	$idClient="";
-	$numCompte="";
-	$typeCompte="";
-	$id="";
+	$numCompte=$_POST['num_compte'];
 
 	//instance de classe Operation
-	$operation = new Operation($id,$idCompte,$type,$montant,$soldeavant,$soldeapres,$comptedest,$date_ope,$agent);
+	$operation = new Operation($numCompte,$type,$montant,$soldeavant,$soldeapres,$comptedest,$date_ope,$agent);
 	
 	//appele a la fonction addOperation de la class operationControle qui permet d'inserer les infos de l'opération de depot a la base de donn"e
 	$operationControle->addOperation($operation);
   
 	//instance de classe compte
-	$compte = new Compte($idCompte,$idClient,$numCompte,$typeCompte,$solde);
+	$compte = new Compte($idClient,$numCompte,$type,$solde);
 
 	//appele a la fonction editSolde de la class operationControle qui permet de modifier le solde du client apres operation
 	$operationControle->editSolde($compte);
@@ -82,33 +79,31 @@ if(isset($_POST['virement'])){
 	$solde_destinataire = $soldeavant+$montant;
 	$solde_expediteur = $soldeavant-$montant;
 
-	$idCompte = $_POST['id_compte'];
 	$destinataire = $_POST['destinataire'];
-	$agent = $_POST['id_agent'];
 	$date_ope = date('Y-m-d H:i:s');
 	$soldeapres=$solde_expediteur;
 
-	
 	$idClient="";
-	$numCompte="";
+	$numCompte=$_POST['num_compte'];
+	$numCompte2=$_POST['num_compte2'];
 	$typeCompte="";
-	$id="";
-	$idAgent=$_SESSION['idAgent'];
+	$agent=$_SESSION['idAgent'];
 
 	//instance de classe Operation
-	$operation = new Operation($id,$idCompte,$type,$montant,$soldeavant,$soldeapres,$destinataire,$date_ope,$agent);
+	$operation = new Operation($numCompte,$type,$montant,$soldeavant,$soldeapres,$destinataire,$date_ope,$agent);
+
 
 	//appele a la fonction addOperation de la class operationControle qui permet d'inserer les infos de l'opération de depot a la base de donnée
 	$operationControle->addOperation($operation);
-  
+
 	//instance de classe compte
-	$compte = new Compte($idCompte,$idClient,$numCompte,$typeCompte,$solde_expediteur);
+	$compte = new Compte($idClient,$numCompte,$typeCompte,$solde_expediteur);
 
 	//appele a la fonction editSolde de la class operationControle qui permet de modifier le solde du client apres operation
 	$operationControle->editSolde($compte);
 
 	//instance de classe compte
-	$compte2 = new Compte($destinataire,$idClient,$numCompte,$typeCompte,$solde_destinataire);
+	$compte2 = new Compte($destinataire,$numCompte2,$typeCompte,$solde_destinataire);
 
 	//appele a la fonction editSolde de la class operationControle qui permet de modifier le solde du client apres operation
 	$operationControle->editSolde2($compte2);

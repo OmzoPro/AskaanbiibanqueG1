@@ -40,6 +40,9 @@
 		else if($_GET['p']=='resultat'){
 			include('view/resultat.php');
 		}
+		else if($_GET['p']=='solde'){
+			include('view/solde.php');
+		}
 		else{
 			include'view/404.php';
 		}

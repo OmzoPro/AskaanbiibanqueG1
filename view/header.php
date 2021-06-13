@@ -1,4 +1,12 @@
-<?php include('modele/userControle.php');?>
+<?php include('modele/userControle.php');
+
+session_start();
+if (isset($_GET['deconnexion'])) {
+  session_destroy();
+  $_SESSION['connexion']=0;
+  header("location:index.php?p=login");
+}
+?>
 
 <!doctype html>
 <html lang="">
@@ -103,7 +111,12 @@
               </div>
           </div>
           <?php
-               include('nav_loggin.php');  
+          if($_SESSION['connexion']=0){
+            include('nav_loggout.php');  
+          }elseif($_SESSION['connexion']=1){
+
+               include('nav_loggin.php');
+               }  
           ?>
 
             

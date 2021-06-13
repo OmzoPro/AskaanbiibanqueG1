@@ -1,6 +1,5 @@
 <?php 
 class Compte{
-	private $idCompte;
 	private $idClient;
 	private $numCompte;
 	private $typeCompte;
@@ -9,8 +8,7 @@ class Compte{
     /***
      *contructeur avec les parametres des variables declares 
      */
-	function __construct($idCompte,$idClient,$numCompte,$typeCompte,$solde){
-		$this->idCompte = $idCompte;
+	function __construct($idClient,$numCompte,$typeCompte,$solde){
 		$this->idClient = $idClient;
 		$this->numCompte = $numCompte;
 		$this->typeCompte = $typeCompte;
@@ -20,9 +18,6 @@ class Compte{
 	/***
      *getters
      */
-	public function getIdCompte(){
-		return $this->idCompte;
-	}
 
 	public function getIdClient(){
 		return $this->idClient;
@@ -43,9 +38,6 @@ class Compte{
 	/***
      *setters
      */
-	public function setIdCompte($idCompte){
-		$this->idCompte = $idCompte;
-	}
 
 	public function setIdClient($idClient){
 		$this->idClient = $idClient;

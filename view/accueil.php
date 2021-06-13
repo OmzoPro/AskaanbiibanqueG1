@@ -11,7 +11,7 @@
                             <?php
                                 if( $_SESSION['role']=='client') {         
                             ?>
-                            <a href="#" class="default-btn">Consultez votre solde</a>
+                            <a href="?p=solde" class="default-btn">Consultez votre solde</a>
                             <?php
                                 }
                             ?>

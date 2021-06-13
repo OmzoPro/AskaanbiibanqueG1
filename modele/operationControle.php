@@ -72,15 +72,15 @@ class OperationControle extends Database{
 	 * fonction pour inserer les données de l'operation a la base de donnée
 	**/
 	public function addOperation(Operation $operation){
-		$sql="INSERT INTO operation (idOperation,idCompte,typeOperation,montantOperation,soldeAvant,soldeApres,compteDestinataire,dateOperation, idAgent) VALUES(NULL,:idcompte,:type,:montant,:soldeavant,:soldeapres,:comptedest,:dateope,:idagent)";
+		$sql="INSERT INTO operation (numCompte,typeOperation,montantOperation,soldeAvant,soldeApres,compteDestinataire,dateOperation, idAgent) VALUES(:compte,:type,:montant,:soldeavant,:soldeapres,:comptedest,:dateope,:idagent)";
 		$stmt= $this->connect()->prepare($sql);
-		$stmt->bindValue(':idcompte', $operation->getIdCompte(), PDO::PARAM_STR);
+		$stmt->bindValue(':compte', $operation->getNumCompte(), PDO::PARAM_STR);
 		$stmt->bindValue(':type', $operation->getTypeOperation(), PDO::PARAM_STR);
 		$stmt->bindValue(':montant', $operation->getMontantOperation(), PDO::PARAM_INT);
 		$stmt->bindValue(':soldeavant', $operation->getSoldeAvant(), PDO::PARAM_INT);
 		$stmt->bindValue(':soldeapres', $operation->getSoldeApres(), PDO::PARAM_INT);
 		$stmt->bindValue(':comptedest', $operation->getCompteDestinataire(), PDO::PARAM_STR);
-		$stmt->bindValue(':dateope', $operation->getDateOperation(), PDO::PARAM_INT);
+		$stmt->bindValue(':dateope', $operation->getDateOperation(), PDO::PARAM_STR);
 		$stmt->bindValue(':idagent', $operation->getIdAgent(), PDO::PARAM_STR);
 		$stmt->execute();
 		header("location: {$_SERVER['HTTP_REFERER']}");
@@ -91,10 +91,10 @@ class OperationControle extends Database{
 	**/
 	public function editSolde(Compte $compte){
 
-		$sql="UPDATE compte set solde=:solde WHERE idCompte=:compte";
+		$sql="UPDATE compte set solde=:solde WHERE numCompte=:compte";
 		$stmt= $this->connect()->prepare($sql);
 		$stmt->bindValue(':solde', $compte->getSolde(), PDO::PARAM_INT);
-		$stmt->bindValue(':compte', $compte->getidCompte(), PDO::PARAM_STR);
+		$stmt->bindValue(':compte', $compte->getNumCompte(), PDO::PARAM_STR);
 		$stmt->execute();
 		header("location: {$_SERVER['HTTP_REFERER']}");
 
@@ -105,32 +105,14 @@ class OperationControle extends Database{
 	**/
 	public function editSolde2(Compte $compte2){
 
-		$sql="UPDATE compte set solde=:solde WHERE idCompte=:compte";
+		$sql="UPDATE compte set solde=:solde WHERE numCompte=:compte";
 		$stmt= $this->connect()->prepare($sql);
 		$stmt->bindValue(':solde', $compte2->getSolde(), PDO::PARAM_INT);
-		$stmt->bindValue(':compte', $compte2->getidCompte(), PDO::PARAM_STR);
+		$stmt->bindValue(':compte', $compte2->getNumCompte(), PDO::PARAM_STR);
 		$stmt->execute();
 		header("location: {$_SERVER['HTTP_REFERER']}");
 
 	}
-
-	/**
-	 * fonction pour recuperer les coordonnes de l'agent qui a fait l'opération
-	
-	public function infosagent($idAgent){
-		$sql="SELECT * FROM agent WHERE idAgent=:agent";
-		$stmt = $this->connect()->prepare($sql);
-    	$stmt->bindValue(':agent', $idAgent, PDO::PARAM_INT);
-    	$stmt->execute();
-    	$resultat = $stmt->fetch(PDO::FETCH_ASSOC);
-		session_start();
-    	$_SESSION['idAgent'] = $resultat['idAgent'] ;
-    	$_SESSION['nomAgent'] = $resultat['nom'];
-    	$_SESSION['prenomAgent'] = $resultat['prenom'];
-           	
-		return $resultat;
-	
-	} **/
 	
 }
 

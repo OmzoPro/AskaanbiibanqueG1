@@ -31,7 +31,7 @@ if (isset($_GET['type_'])) {
                         <div class="form-group">
                             <label class="">Numéro de Compte du client</label>
                             <input type="text" disabled="" value="<?=$_SESSION['numCompte']?> " class="form-control">
-                            <input type="hidden" name="id_compte" value="<?=$_SESSION['idCompte']?> " class="form-control">
+                            <input type="hidden" name="num_compte" value="<?=$_SESSION['numCompte']?> " class="form-control">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -91,6 +91,7 @@ if (isset($_GET['type_'])) {
                             <div class="form-group">
                                 <label>Numero de Compte du destinataire</label>
                                 <input type="text" disabled="" value="<?=$_SESSION['numCompte2']?> " class="form-control">
+                                <input type="hidden" name="num_compte2" value="<?=$_SESSION['numCompte2']?> " class="form-control">
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6">

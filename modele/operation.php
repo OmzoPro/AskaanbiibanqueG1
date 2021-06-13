@@ -1,7 +1,6 @@
 <?php 
 class Operation{
-	private $idOperation;
-	private $idCompte;
+	private $numCompte;
 	private $typeOperation;
 	private $montantOperation;
 	private $soldeAvant;
@@ -13,9 +12,8 @@ class Operation{
     /***
      *contructeur avec les parametres des variables declares 
      */
-	function __construct($idOperation,$idCompte,$typeOperation,$montantOperation,$soldeAvant,$soldeApres,$compteDestinataire,$dateOperation,$idAgent){
-		$this->idOperation = $idOperation;
-		$this->idCompte = $idCompte;
+	function __construct($numCompte,$typeOperation,$montantOperation,$soldeAvant,$soldeApres,$compteDestinataire,$dateOperation,$idAgent){
+		$this->numCompte = $numCompte;
 		$this->typeOperation = $typeOperation;
 		$this->montantOperation = $montantOperation;
 		$this->soldeAvant = $soldeAvant;
@@ -28,12 +26,10 @@ class Operation{
 	/***
      *getters
      */
-	public function getIdOperation(){
-		return $this->idOperation;
-	}
+	
 
-	public function getIdCompte(){
-		return $this->idCompte;
+	public function getNumCompte(){
+		return $this->numCompte;
 	}
 
 	public function getTypeOperation(){
@@ -67,12 +63,10 @@ class Operation{
 	/***
      *setters
      */
-	public function setIdOperation($idOperation){
-		$this->idOperation = $idOperation;
-	}
+	
 
-	public function setIdCompte($idCompte){
-		$this->idCompte = $idCompte;
+	public function setNumCompte($numCompte){
+		$this->numCompte = $numCompte;
 	}
 
 	public function setTypeOperation($typeOperation){
