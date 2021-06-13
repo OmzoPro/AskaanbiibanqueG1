@@ -5,7 +5,7 @@ class DetailControle extends Database{
 	 * fonction pour recuperer tous les enregistrements de user
 	 **/
 	public function getDetailAgents(){
-		$sql="select * from client c,agent a,agence p,compte t,operation f where a.idAgence=p.idAgence and t.idClient=c.idClient and f.idCompte=t.idCompte and f.idAgent=a.idAgent; ";
+		$sql="SELECT a.* FROM client c,agent a,agence p,compte t,operation f WHERE (a.idAgence=p.idAgence AND t.idClient=c.idClient AND f.idCompte=t.idCompte AND f.idAgent=a.idAgent)";
 		$stmt= $this->connect()->prepare($sql);
 		$stmt->execute();
 		while ($result = $stmt->fetchAll()) {
@@ -14,7 +14,7 @@ class DetailControle extends Database{
 	}
 
 		public function getDetailAgences(){
-		$sql="SELECT * FROM agence; ";
+		$sql="select p.* from client c,agent a,agence p,compte t,operation f where a.idAgence=p.idAgence and t.idClient=c.idClient and f.idCompte=t.idCompte and f.idAgent=a.idAgent; ";
 		$stmt= $this->connect()->prepare($sql);
 		$stmt->execute();
 		while ($result = $stmt->fetchAll()) {
@@ -24,7 +24,7 @@ class DetailControle extends Database{
 
 
 	public function getDetailClients(){
-		$sql="SELECT * FROM client; ";
+		$sql="select c.*,t.numCompte from client c,agent a,agence p,compte t,operation f where a.idAgence=p.idAgence and t.idClient=c.idClient and f.idCompte=t.idCompte and f.idAgent=a.idAgent; ";
 		$stmt= $this->connect()->prepare($sql);
 		$stmt->execute();
 		while ($result = $stmt->fetchAll()) {

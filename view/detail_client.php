@@ -1,4 +1,8 @@
-
+<?php
+if (isset($_GET['id'])) {
+        $idAgent = $_GET['id'];
+    }
+?>
 <?php include('modele/detailControle.php');?>
  <!-- Debut tableau -->
  <section class="open-account-area ptb-100">
@@ -16,30 +20,32 @@
                         </div>
                     </div>
                 </div>
-                <?php $clientController = new DetailControle(); ?>
-       <?php if($clientController->getDetailClients()) : ?>
-        <?php foreach($clientController->getDetailClients() as $clients) : ?>
-           <?php endforeach; ?>
+                <?php $agenceController = new DetailControle(); ?>
+       <?php if($agenceController->getDetailAgences()) : ?>
+        <?php foreach($agenceController->getDetailAgences() as $Agences) : ?>
+          <?php endforeach; ?>
         <?php endif; ?>
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
                             <label class=""><h1>Agence</h1></label>
                         </div>
                     </div>
-                     
-                  <div class="col-lg-12 col-md-12">
+                    
+        
+         
+                    <div class="col-lg-12 col-md-12">
                         <div class="form-group">
-                            <label>nom Agence:  <?= $clients['nom'] ?> </label>
+                            <label >nom Agence:<?= $Agences['nomAgence'] ?>   </label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                            <label>Adresse: <?= $clients['adresse'] ?></label>
+                            <label>Adresse: <?= $Agences['adresse'] ?></label>
                         </div>
                     </div>
                      <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                            <label>Téléphone: <?= $clients['telephone'] ?></label>
+                            <label>Téléphone: <?= $Agences['telephone'] ?></label>
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12">
@@ -47,19 +53,24 @@
                             <label class=""><h1>Agent operant</h1></label>
                         </div>
                     </div>
+                    <?php $agentController = new DetailControle(); ?>
+       <?php if($agentController->getDetailAgents()) : ?>
+        <?php foreach($agentController->getDetailAgents() as $Agents) : ?>
+           <?php endforeach; ?>
+        <?php endif; ?>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                            <label>Prenom: </label>
+                            <label>Prenom:<?= $Agents['prenom'] ?> </label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                            <label>Nom:</label>
+                            <label>Nom:<?= $Agents['nom'] ?></label>
                         </div>
                     </div>
                      <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                            <label>Téléphone:</label>
+                            <label>Téléphone:<?= $Agents['telephone'] ?></label>
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12">
@@ -67,39 +78,32 @@
                             <label class=""><h1>Client</h1></label>
                         </div>
                     </div>
+                    <?php $clientController = new DetailControle(); ?>
+       <?php if($clientController->getDetailClients()) : ?>
+        <?php foreach($clientController->getDetailClients() as $clients) : ?>
+           <?php endforeach; ?>
+        <?php endif; ?>
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
-                            <label>Numéro de compte:  </label>
+                            <label>Numéro de compte: <?= $clients['numCompte'] ?> </label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                            <label>Prenom: </label>
+                            <label>Prenom: <?= $clients['prenom'] ?></label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                            <label>Nom: </label>
+                            <label>Nom:<?= $clients['nom'] ?> </label>
                         </div>
                     </div>
                     
-                    <div class="col-lg-6 col-md-6">
-                        <div class="form-group">
-                            <label><h5>Signature de l'agent</h5></label>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="form-group">
-                            <label><h5>Signature du client</h5></label>
-                        </div>
-                    </div>
-                    <br>
+                  
 
                 </div>
                <div class="col-lg-12">
-                    <div class="banner-form-btn">
-                        <button onClick="imprimer('sectionAimprimer')">Imprimer le reçu</button>
-                    </div>
+                    
                     <div class="banner-form-btn">
                         <button onClick="return">return</button>
                     </div>
