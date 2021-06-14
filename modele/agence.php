@@ -5,7 +5,6 @@ class Agence{
 	public $telephone;
 	public $email;
 	public $dateCreation;
-	public $idAgence;
 	
 
     /***
@@ -14,12 +13,9 @@ class Agence{
 	function __construct($nomAgence,$email,$adresse,$telephone,$dateCreation){
 		
 		$this->nomAgence = $nomAgence;
-		$this->idAgence = $idAgence;
 		$this->email = $email;
 		$this->adresse = $adresse;
-		
 		$this->telephone = $telephone;
-		
 		$this->dateCreation = $dateCreation;
 		
 
@@ -28,9 +24,6 @@ class Agence{
 	/***
      *getters
      */
-	public function getIdAgence(){
-		return $this->idAgence;
-	}
 	public function getNom(){
 		return $this->nomAgence;
 	}
@@ -61,10 +54,6 @@ class Agence{
 
 	public function setNom($nomAgence){
 		$this->nomAgence = $nomAgence;
-	}
-
-	public function setIdAgence($idAgence){
-		$this->idAgence = $idAgence;
 	}
 
 	public function setEmail($email){

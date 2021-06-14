@@ -16,7 +16,7 @@ if (isset($_POST['ajouter'])) {
 	
 	$telephone = $_POST['telephone'];
 	
-	$dateCreation = $_POST['dateCreation'];
+	$dateCreation =date('Y-m-d H:i:s');
 	
 	
 	//instance de classe User

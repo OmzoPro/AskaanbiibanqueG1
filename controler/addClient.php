@@ -21,7 +21,7 @@ if (isset($_POST['ajouter'])) {
 	$cni = $_POST['cni'];
 	$telephone = $_POST['telephone'];
 	$naissance = $_POST['dateNaissance'];
-	$dateCreation = $_POST['dateCreation'];
+	$dateCreation = date('Y-m-d H:i:s');
 
 	$numCompte = rand();
 	$typeCompte = $_POST['typeCompte'];

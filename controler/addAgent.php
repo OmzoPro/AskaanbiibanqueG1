@@ -19,8 +19,7 @@ if (isset($_POST['ajouter'])) {
 	$grade = $_POST['grade'];
 	$telephoneAgent = $_POST['telephone'];
 	$naissanceAgent = $_POST['dateNaissance'];
-	$dateCreaAgent = $_POST['dateCreation'];
-
+	$dateCreaAgent = date('Y-m-d H:i:s');
 
 	$mon = $_POST['mon'];
 	$password = $_POST['password'];

@@ -28,18 +28,6 @@ require 'controler/editAgence.php';
                                 </div>
                             </div>
 
-                            
-                            
-
-                            <div class="col-lg-6 col-md-6">
-                                <div class="form-group">
-                                    <label>Date de création</label>
-                                    <input type="Date" class="form-control" placeholder="dd/mm/yy" name="dateCreaAgent" value="<?= $person->dateCreation; ?>">
-                                </div>
-                            </div>
-
-                            
-
                            
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">

@@ -4,35 +4,29 @@ if (isset($_GET['id'])) {
     }
 ?>
 <?php include('modele/detailControle.php');?>
- <!-- Debut tableau -->
- <section class="open-account-area ptb-100">
+<!-- Debut tableau -->
+<section class="open-account-area ptb-100">
     <div class="container">
-        <div class="section-title">
-            
-        </div>
         <div class="open-account-form">
-          <form>
+            <form>
                 <div class="row" id='sectionAimprimer'>
-                  <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                    <div class="logo">
-                      <img src="assets/img/logo-3.png" alt="image">
+                            <div class="logo">
+                                <img src="assets/img/logo-3.png" alt="image">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <?php $agenceController = new DetailControle(); ?>
-       <?php if($agenceController->getDetailAgences()) : ?>
-        <?php foreach($agenceController->getDetailAgences() as $Agences) : ?>
-          <?php endforeach; ?>
-        <?php endif; ?>
+                    <?php $agenceController = new DetailControle(); ?>
+                    <?php if($agenceController->getDetailAgences()) : ?>
+                    <?php foreach($agenceController->getDetailAgences() as $Agences) : ?>
+                    <?php endforeach; ?>
+                    <?php endif; ?>
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
                             <label class=""><h1>Agence</h1></label>
                         </div>
                     </div>
-                    
-        
-         
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
                             <label>nom Agence:  <?= $Agences['nomAgence'] ?> </label>
@@ -43,7 +37,7 @@ if (isset($_GET['id'])) {
                             <label>Adresse: <?= $Agences['adresse'] ?></label>
                         </div>
                     </div>
-                     <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label>Téléphone: <?= $Agences['telephone'] ?></label>
                         </div>
@@ -54,10 +48,10 @@ if (isset($_GET['id'])) {
                         </div>
                     </div>
                     <?php $agentController = new DetailControle(); ?>
-       <?php if($agentController->getDetailAgents()) : ?>
-        <?php foreach($agentController->getDetailAgents() as $Agents) : ?>
-           <?php endforeach; ?>
-        <?php endif; ?>
+                    <?php if($agentController->getDetailAgents()) : ?>
+                    <?php foreach($agentController->getDetailAgents() as $Agents) : ?>
+                    <?php endforeach; ?>
+                    <?php endif; ?>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label>Prenom:<?= $Agents['prenom'] ?> </label>
@@ -79,10 +73,10 @@ if (isset($_GET['id'])) {
                         </div>
                     </div>
                     <?php $clientController = new DetailControle(); ?>
-       <?php if($clientController->getDetailClients()) : ?>
-        <?php foreach($clientController->getDetailClients() as $clients) : ?>
-           <?php endforeach; ?>
-        <?php endif; ?>
+                    <?php if($clientController->getDetailClients()) : ?>
+                    <?php foreach($clientController->getDetailClients() as $clients) : ?>
+                    <?php endforeach; ?>
+                    <?php endif; ?>
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
                             <label>Numéro de compte: <?= $clients['numCompte'] ?> </label>
@@ -98,16 +92,11 @@ if (isset($_GET['id'])) {
                             <label>Nom:<?= $clients['nom'] ?> </label>
                         </div>
                     </div>
-                    
-                  
-
                 </div>
-               <div class="col-lg-12">
-                    
+                <div class="col-lg-12">
                     <div class="banner-form-btn">
                         <button onClick="return">return</button>
                     </div>
-
                 </div>
             </form>
         </div>

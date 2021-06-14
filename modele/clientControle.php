@@ -13,6 +13,19 @@ class ClientControle extends Database{
 		}
 	}
 
+	/**
+	 * fonction pour recuperer tous les enregistrements de user
+	 **/
+	public function getClient(){
+		$sql="SELECT * FROM client WHERE idClient=:idClient";
+		$stmt= $this->connect()->prepare($sql);
+		$stmt->bindValue(':idClient', $idClient, PDO::PARAM_INT);
+    	$stmt->execute();
+    	while ($person = $stmt->fetchAll()) {
+			return $person;
+		}
+	}
+
 
 
 	public function addClients(Client $client, compte $compte,User $user){

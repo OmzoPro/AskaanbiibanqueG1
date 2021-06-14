@@ -8,14 +8,13 @@ class Database{
 
     public function connect(){
        
-         $dsn = 'mysql:host='. $this->host. ';dbname='. $this->dbname;
-         $con = new PDO($dsn, $this->user, $this->password);
+         $bdd = 'mysql:host='. $this->host. ';dbname='. $this->dbname;
+         $con = new PDO($bdd, $this->user, $this->password);
          $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
          $con->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
          return $con; 
+   }
 }
-}
 
 
-
- ?>
+?>

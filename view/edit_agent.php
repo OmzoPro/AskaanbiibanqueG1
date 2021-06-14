@@ -11,7 +11,7 @@ require 'controler/editAgent.php';
  <div class="container">
   <div class="card mt-5">
     <div class="card-header">
-      <h2>Update person</h2>
+      <h2>modification agents</h2>
     </div>
     <div class="card-body">
       <?php if(!empty($message)): ?>
@@ -48,17 +48,7 @@ require 'controler/editAgent.php';
                                     <label>Sexe</label>
                                     <input type="text" class="form-control" placeholder="" name="sexe" value="<?= $person->sexe; ?>">
                                 </div>
-                            </div>
-
-                            <div class="col-lg-6 col-md-6">
-                                <div class="form-group">
-                                    <label>Date de création</label>
-                                    <input type="Date" class="form-control" placeholder="dd/mm/yy" name="dateCreaAgent" value="<?= $person->dateCreation; ?>">
-                                </div>
-                            </div>
-
-                            
-
+                            </div> 
                            
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
@@ -91,7 +81,7 @@ require 'controler/editAgent.php';
                            
 
         <div class="form-group">
-          <button type="submit" class="btn btn-info">Update person</button>
+          <button type="submit" class="btn btn-info" style="background-color:red;">modifier</button>
         </div>
       </form>
     </div>

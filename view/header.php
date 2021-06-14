@@ -103,7 +103,7 @@
               </div>
           </div>
           <?php
-               include('nav_loggin.php');  
+               include('menu.php');  
           ?>
 
             

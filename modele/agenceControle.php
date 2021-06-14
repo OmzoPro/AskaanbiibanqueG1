@@ -28,15 +28,10 @@ public function addAgences(Agence $agence){
 		VALUES(:nomAgence,:email,:adresse,:telephone,:dateCreation);";
 		$stmt= $this->connect()->prepare($sql);
 		$stmt->bindValue(':nomAgence', $agence->getNom(), PDO::PARAM_STR);
-		
 		$stmt->bindValue(':email', $agence->getEmail(), PDO::PARAM_STR);
 		$stmt->bindValue(':adresse', $agence->getAdresse(), PDO::PARAM_STR);
-		
-		$stmt->bindValue(':telephone', $agence->getTelephone(), PDO::PARAM_STR);
-		
+		$stmt->bindValue(':telephone', $agence->getTelephone(), PDO::PARAM_INT);
 		$stmt->bindValue(':dateCreation', $agence->getDateCreation(), PDO::PARAM_STR);
-		
-
 		$stmt->execute();
 		header("location: {$_SERVER['HTTP_REFERER']}");
 	}

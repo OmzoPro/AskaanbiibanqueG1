@@ -1,12 +1,15 @@
 <?php
 session_start();
-if (isset($_GET['deconnexion'])) {
-  session_unset();
+
+if (empty($_SESSION)) {
   $_SESSION['role']="";
-  $_SESSION['prenomAgent']="";
-  $_SESSION['nomAgent']="";
+}
+if (isset($_GET['deconnexion'])) {
+  session_destroy();
+  $_SESSION['role']="";
   header("location:index.php?p=login");
-}   
+}
+
 ?>
 <div class="main-navbar">
   <div class="container">
@@ -121,7 +124,23 @@ if (isset($_GET['deconnexion'])) {
 
               <div class="others-options d-flex align-items-center">
                   <div class="option-item">
-                      <a href="?deconnexion=true" class="default-btn">welcome </a>
+                    <?php
+                    if (($_SESSION['role']=='client')) {
+                      $prenom=$_SESSION['prenom'];
+                      $nom=$_SESSION['nom'];
+                    }elseif (($_SESSION['role']=="agent") OR ($_SESSION['role']=="chef_agent")) {
+                      $prenom=$_SESSION['prenomAgent'];
+                      $nom=$_SESSION['nomAgent'];
+                    }elseif (($_SESSION['role']=='super_admin')) {
+                      $prenom="Super";
+                      $nom="Admin";
+                    }else{
+                      $prenom="";
+                      $nom="";
+
+                    }
+                    ?>
+                      <a href="?deconnexion=true" class="default-btn">welcome <?=$prenom?> <?=$nom?></a>
                   </div>
               </div>
           </div>
