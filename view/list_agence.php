@@ -1,7 +1,9 @@
 <?php include('modele/agenceControle.php');?> 
-<div class="tableau" style="margin-top: 55px;">
-  <div class="row">
-    <div class="col-12">
+<section class="open-account-area ptb-100">
+  <div class="container">
+    <div class="section-title">
+        <h2>liste des agences</h2>
+    </div>
       <!-- Debut tableau -->
       <table class="table table-bordered" >
         <!--entete tableau-->
@@ -42,7 +44,5 @@
       </table>
       <!-- Fin tableau -->
     </div>
-  </div>
-</div>
-
+</section>
         

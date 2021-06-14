@@ -2,7 +2,7 @@
 
 <section class="open-account-area ptb-100">
   <div class="container">
-    <div class="section-title" style="margin-top: 55px;">
+    <div class="section-title" >
         <h2>liste des clients</h2>
     </div>
     <!-- Debut tableau --> 

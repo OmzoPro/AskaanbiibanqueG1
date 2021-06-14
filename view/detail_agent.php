@@ -4,6 +4,7 @@ if (isset($_GET['id'])) {
     }
 ?>
 <?php include('modele/detailControle.php');?>
+
  <!-- Debut tableau -->
  <section class="open-account-area ptb-100">
     <div class="container">
@@ -50,7 +51,45 @@ if (isset($_GET['id'])) {
                     </div>
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
-                            <label class=""><h1>Agent operant</h1></label>
+                            <label class=""><h1>liste des operations</h1></label>
+                        </div>
+                    </div>
+                    <table class="table table-bordered" >     
+      <!--entete tableau-->
+      <thead >
+        <tr>
+          <th>N° compte</th>
+          <th>operation</th>
+          <th>date</th>
+          <th>solde A</th>
+          <th>solde P</th>
+         
+      </thead>
+      <!--corpt tableau-->
+
+      <tbody>
+        <!--
+        recuperation des données de la base par l'appél de la methode
+        getUsers de la classe UserController s
+          --->
+         <?php $clientController = new DetailControle(); ?>
+         <?php if($clientController->getOperation()) : ?>
+          <?php foreach($clientController->getOperation() as $Agents) : ?>
+        <tr>
+          <th><?= $Agents['numCompte'] ?></th>
+          <th><?= $Agents['typeOperation'] ?></th>
+          <th><?= $Agents['dateOperation'] ?></th>
+          <th><?= $Agents['soldeAvant'] ?></th>
+          <th><?= $Agents['soldeApres'] ?></th>
+         
+        </tr>
+        <?php endforeach; ?>
+        <?php endif; ?>
+      </tbody>
+    </table>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <label class=""><h1>chef agence</h1></label>
                         </div>
                     </div>
                     <?php $agentController = new DetailControle(); ?>
@@ -73,35 +112,6 @@ if (isset($_GET['id'])) {
                             <label>Téléphone:<?= $Agents['telephone'] ?></label>
                         </div>
                     </div>
-                    <div class="col-lg-12 col-md-12">
-                        <div class="form-group">
-                            <label class=""><h1>Client</h1></label>
-                        </div>
-                    </div>
-                    <?php $clientController = new DetailControle(); ?>
-       <?php if($clientController->getDetailClients()) : ?>
-        <?php foreach($clientController->getDetailClients() as $clients) : ?>
-           <?php endforeach; ?>
-        <?php endif; ?>
-                    <div class="col-lg-12 col-md-12">
-                        <div class="form-group">
-                            <label>Numéro de compte: <?= $clients['numCompte'] ?> </label>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="form-group">
-                            <label>Prenom: <?= $clients['prenom'] ?></label>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="form-group">
-                            <label>Nom:<?= $clients['nom'] ?> </label>
-                        </div>
-                    </div>
-                    
-                  
-
-                </div>
                <div class="col-lg-12">
                     
                     <div class="banner-form-btn">
