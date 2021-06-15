@@ -62,7 +62,7 @@ if(isset($_POST['depot_retrait'])){
 	$operationControle->addOperation($operation);
   
 	//instance de classe compte
-	$compte = new Compte($idClient,$numCompte,$type,$solde);
+	$compte = new Compte($numCompte,$type,$solde);
 
 	//appele a la fonction editSolde de la class operationControle qui permet de modifier le solde du client apres operation
 	$operationControle->editSolde($compte);
@@ -93,17 +93,17 @@ if(isset($_POST['virement'])){
 	//appele a la fonction addOperation de la class operationControle qui permet d'inserer les infos de l'opération de depot a la base de donnée
 	$operationControle->addOperation($operation);
 
-	//instance de classe compte
-	$compte = new Compte($numCompte,$typeCompte,$solde_expediteur);
+	//instance de classe comptes
+	$compte = new Compte($numCompte,$type,$solde_expediteur);
 
 	//appele a la fonction editSolde de la class operationControle qui permet de modifier le solde du client apres operation
 	$operationControle->editSolde($compte);
 	if ($type='virement') {
 		//instance de classe compte
-	$compte2 = new Compte($numCompte2,$typeCompte,$solde_destinataire);
+	$compte2 = new Compte($numCompte2,$type,$solde_destinataire);
 
 	//appele a la fonction editSolde de la class operationControle qui permet de modifier le solde du client apres operation
-	$operationControle->editSolde($compte);
+	$operationControle->editSolde2($compte2);
 
 	}
 	

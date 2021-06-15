@@ -102,7 +102,7 @@ class OperationControle extends Database{
 
 	/**
 	 * fonction pour modifier les solde des 2 clients apres operation de virement
-	
+	**/
 	public function editSolde2(Compte $compte2){
 
 		$sql="UPDATE compte set solde=:solde WHERE numCompte=:compte";
@@ -113,7 +113,7 @@ class OperationControle extends Database{
 		header("location: {$_SERVER['HTTP_REFERER']}");
 
 	}
-	**/
+	
 }
 
 ?>
