@@ -65,12 +65,12 @@ if (isset($_GET['type_'])) {
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                            <label>Prenom: <?=$_SESSION['prenomAgent']?> </label>
+                            <label>Prenom: <?=$_SESSION['prenomAgentCon']?> </label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                            <label>Nom: <?=$_SESSION['nomAgent']?></label>
+                            <label>Nom: <?=$_SESSION['nomAgentCon']?></label>
                         </div>
                     </div>
                      <div class="col-lg-6 col-md-6">

@@ -79,7 +79,7 @@ class OperationControle extends Database{
 		$stmt->bindValue(':montant', $operation->getMontantOperation(), PDO::PARAM_INT);
 		$stmt->bindValue(':soldeavant', $operation->getSoldeAvant(), PDO::PARAM_INT);
 		$stmt->bindValue(':soldeapres', $operation->getSoldeApres(), PDO::PARAM_INT);
-		$stmt->bindValue(':comptedest', $operation->getCompteDestinataire(), PDO::PARAM_STR);
+		$stmt->bindValue(':comptedest', $operation->getCompteDestinataire(), PDO::PARAM_INT);
 		$stmt->bindValue(':dateope', $operation->getDateOperation(), PDO::PARAM_STR);
 		$stmt->bindValue(':idagent', $operation->getIdAgent(), PDO::PARAM_STR);
 		$stmt->execute();
@@ -102,7 +102,7 @@ class OperationControle extends Database{
 
 	/**
 	 * fonction pour modifier les solde des 2 clients apres operation de virement
-	**/
+	
 	public function editSolde2(Compte $compte2){
 
 		$sql="UPDATE compte set solde=:solde WHERE numCompte=:compte";
@@ -113,7 +113,7 @@ class OperationControle extends Database{
 		header("location: {$_SERVER['HTTP_REFERER']}");
 
 	}
-	
+	**/
 }
 
 ?>

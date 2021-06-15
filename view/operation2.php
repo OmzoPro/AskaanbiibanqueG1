@@ -25,7 +25,7 @@ if (isset($_GET['type_'])) {
             ?>
         </div>
         <div class="open-account-form">
-            <form action="controler/addOperation.php" method="POST">
+            <form action="controler/operationController.php" method="POST">
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">

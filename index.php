@@ -1,5 +1,4 @@
 <?php
-
 	include('view/header.php');
 
  
@@ -19,14 +18,35 @@
 		else if($_GET['p']=='list_client'){
 			include('view/list_client.php');
 		}
+		else if($_GET['p']=='detail_agence'){
+			include('view/detail_agence.php');
+		}
+		else if($_GET['p']=='detail_client'){
+			include('view/detail_client.php');
+		}
+		else if($_GET['p']=='detail_agent'){
+			include('view/detail_agent.php');
+		}
 		else if($_GET['p']=='ajout_agent'){
 			include('view/ajout_agent.php');
 		}
 		else if($_GET['p']=='list_agent'){
 			include('view/list_agent.php');
 		}
+		else if($_GET['p']=='list_agents'){
+			include('view/list_agents.php');
+		}
 		else if($_GET['p']=='ajout_agence'){
 			include('view/ajout_agence.php');
+		}
+		else if($_GET['p']=='edit_agent'){
+			include('view/edit_agent.php');
+		}
+		else if($_GET['p']=='editClient'){
+			include('view/editClient.php');
+		}
+		else if($_GET['p']=='edit_agence'){
+			include('view/edit_agence.php');
 		}
 		else if($_GET['p']=='list_agence'){
 			include('view/list_agence.php');

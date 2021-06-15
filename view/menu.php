@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if (empty($_SESSION)) {
+  $_SESSION['role']="";
+}
+if (isset($_GET['deconnexion'])) {
+  session_destroy();
+  $_SESSION['role']="";
+  header("location:index.php?p=login");
+}
+
+?>
 <div class="main-navbar">
   <div class="container">
       <nav class="navbar navbar-expand-md navbar-light">
@@ -45,7 +58,7 @@
                   ?>
                   <li class="nav-item">
                       <a href="#" class="nav-link">
-                          Operattions 
+                          Operations 
                           <i class='bx bx-chevron-down'></i>
                       </a>
                       <ul class="dropdown-menu">
@@ -70,7 +83,7 @@
                   </li>
                   <?php
                   }
-                  if( $_SESSION['role']=='chef_agent') { 
+                  if (( $_SESSION['role']=='chef_agent') OR ( $_SESSION['role']=='super_admin')){
                   ?>
                   <li class="nav-item">
                       <a href="?p=ajout_agent" class="nav-link">
@@ -78,8 +91,7 @@
                       </a>
                   </li>
                   <?php
-                  }
-                  if (( $_SESSION['role']=='chef_agent') OR ( $_SESSION['role']=='super_admin')){
+                  }if ($_SESSION['role']=='chef_agent'){
                   ?>
                   <li class="nav-item">
                       <a href="?p=list_agent" class="nav-link">
@@ -90,6 +102,11 @@
                   }
                   if ($_SESSION['role']=='super_admin'){
                   ?>
+                  <li class="nav-item">
+                      <a href="?p=list_agents" class="nav-link">
+                          Listes des Agents
+                      </a>
+                  </li>
                   <li class="nav-item">
                       <a href="?p=ajout_agence" class="nav-link">
                           Ajout Agence
@@ -111,24 +128,23 @@
 
               <div class="others-options d-flex align-items-center">
                   <div class="option-item">
-                      <?php
-                      if ($_SESSION['role']=='client') {
-                        $prenom=$_SESSION['prenom'];
-                        $nom=$_SESSION['nom'];
+                    <?php
+                    if (($_SESSION['role']=='client')) {
+                      $prenom=$_SESSION['prenomCon'];
+                      $nom=$_SESSION['nomCon'];
+                    }elseif (($_SESSION['role']=="agent") OR ($_SESSION['role']=="chef_agent")) {
+                      $prenom=$_SESSION['prenomAgentCon'];
+                      $nom=$_SESSION['nomAgentCon'];
+                    }elseif (($_SESSION['role']=='super_admin')) {
+                      $prenom="Super";
+                      $nom="Admin";
+                    }else{
+                      $prenom="";
+                      $nom="";
 
-                      }else if (( $_SESSION['role']=='chef_agent') OR ( $_SESSION['role']=='agent')){
-                        $prenom=$_SESSION['prenomAgent'];
-                        $nom=$_SESSION['nomAgent'];
-                      }else if ($_SESSION['role']=='super_admin'){
-                        $prenom="Super";
-                        $nom="Admin";
-                      }else{
-                        $prenom="";
-                        $nom="";
-                      }
-
-                      ?>
-                      <a href="?deconnexion=true" class="default-btn">Bienvenue <?=$prenom?> <?=$nom?></a>
+                    }
+                    ?>
+                    <a href="?deconnexion=true" class="default-btn">welcome <?=$prenom?> <?=$nom?></a>
                   </div>
               </div>
           </div>
