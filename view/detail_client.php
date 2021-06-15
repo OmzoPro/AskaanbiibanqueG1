@@ -1,9 +1,10 @@
+<?php include('modele/detailControle.php');?>
 <?php
 if (isset($_GET['id'])) {
         $idAgent = $_GET['id'];
     }
 ?>
-<?php include('modele/detailControle.php');?>
+
 <!-- Debut tableau -->
 <section class="open-account-area ptb-100">
     <div class="container">
@@ -47,35 +48,27 @@ if (isset($_GET['id'])) {
                             <label class=""><h1>Agent operant</h1></label>
                         </div>
                     </div>
-                    <?php $agentController = new DetailControle(); ?>
-                    <?php if($agentController->getDetailAgents()) : ?>
-                    <?php foreach($agentController->getDetailAgents() as $Agents) : ?>
-                    <?php endforeach; ?>
-                    <?php endif; ?>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="form-group">
-                            <label>Prenom:<?= $Agents['prenom'] ?> </label>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="form-group">
-                            <label>Nom:<?= $Agents['nom'] ?></label>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="form-group">
-                            <label>Téléphone:<?= $Agents['telephone'] ?></label>
-                        </div>
-                    </div>
                     
-                    <?php $clientController = new DetailControle(); ?>
-                    <?php if($clientController->getDetailClients()) : ?>
-                    <?php foreach($clientController->getDetailClients() as $clients) : ?>
-                    <?php endforeach; ?>
-                    <?php endif; ?>
+ <?php $clientController = new DetailControle(); ?>
+         <?php if($clientController->getDetailAgents()) : ?>
+          <?php foreach($clientController->getDetailAgents() as $Agents) : ?>
+              <?php endforeach; ?>
+                        <?php endif; ?>
+            
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
-                            <label class=""><center><h1>liste des operations</h1></center></label>
+                            <label>nom agent:  <?= $Agents['nom'] ?> </label>
+                        </div>
+                    </div>
+                     
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label>Adresse: <?= $Agents['adresse'] ?></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label>Téléphone: <?= $Agents['adresse'] ?></label>
                         </div>
                     </div>
                     <table class="table table-bordered" >     

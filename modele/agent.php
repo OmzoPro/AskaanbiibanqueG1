@@ -1,5 +1,6 @@
 <?php 
 class Agent{
+	public $idAgent;
 	public $idAgence;
 	public $nomAgent;
 	public $prenomAgent;
@@ -16,8 +17,9 @@ class Agent{
     /***
      *contructeur avec les parametres des variables declares 
      */
-	function __construct($idAgence,$nomAgent,$prenomAgent,$emailAgent,$adresseAgent,$sexe,$grade,$telephoneAgent,$naissanceAgent,$dateCreaAgent){
+	function __construct($idAgent,$idAgence,$nomAgent,$prenomAgent,$emailAgent,$adresseAgent,$sexe,$grade,$telephoneAgent,$naissanceAgent,$dateCreaAgent){
 
+	    $this->idAgent = $idAgent;
 	    $this->idAgence = $idAgence;
 	    $this->nomAgent = $nomAgent;
 		$this->prenomAgent = $prenomAgent;
@@ -28,15 +30,15 @@ class Agent{
 		$this->telephoneAgent = $telephoneAgent;
 		$this->naissanceAgent = $naissanceAgent;
 		$this->dateCreaAgent = $dateCreaAgent;
-		
-
-		
-
 	}
 
 	/***
      *getters
      */
+	public function getIdAgent(){
+		return $this->idAgent;
+	}
+
 	public function getIdAgence(){
 		return $this->idAgence;
 	}
@@ -78,9 +80,14 @@ class Agent{
      *setters
      */
 
+	public function setIdAgent($idAgent){
+		$this->idAgent = $idAgent;
+	}
+
 	public function setIdAgence($idAgence){
 		$this->idAgence = $idAgence;
 	}
+
 	public function setNom($nomAgent){
 		$this->nomAgent = $nomAgent;
 	}

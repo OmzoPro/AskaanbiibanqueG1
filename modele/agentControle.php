@@ -5,13 +5,41 @@ class AgentControle extends Database{
 	 * fonction pour recuperer tous les enregistrements de user
 	 **/
 	public function getAgents(){
-		$sql="select idAgent,nom, prenom, grade, a.adresse, a.telephone,t.nomAgence,a.idAgent from agent a,agence t  where a.idAgence=t.idAgence; ";
+		$sql="SELECT idAgent,nom, prenom, grade, a.adresse, a.telephone,t.nomAgence,a.idAgent FROM agent a,agence t  WHERE a.idAgence=t.idAgence; ";
 		$stmt= $this->connect()->prepare($sql);
 		$stmt->execute();
 		while ($result = $stmt->fetchAll()) {
 			return $result;
 		}
 	}
+
+	public function getAgent(){
+		$sql="SELECT idAgent,nom, prenom, grade, a.adresse, a.telephone,t.nomAgence,a.idAgent FROM agent a,agence t  WHERE a.idAgence=t.idAgence AND t.nomAgence=:nom AND grade='agent'";
+		$stmt= $this->connect()->prepare($sql);
+		$stmt->bindValue(':nom', $_SESSION['nomAgence'], PDO::PARAM_STR);
+		$stmt->execute();
+		while ($result = $stmt->fetchAll()) {
+			return $result;
+		}
+	}
+
+	public function editAgents(Agent $agent){
+ 
+			$sql="UPDATE agent set nom=:nm, prenom=:prn, adresse=:adrs, telephone=:tel, naissance=:nais, dateCreation=:datecrea,  sexe=:sex , email=:mail WHERE idAgent=:idAgent";
+			$stmt= $this->connect()->prepare($sql);
+			$stmt->bindValue(':nm', $agent->getNom(), PDO::PARAM_STR);
+			$stmt->bindValue(':prn', $agent->getPrenom(), PDO::PARAM_STR);
+			$stmt->bindValue(':adrs', $agent->getAdresse(), PDO::PARAM_STR);
+			$stmt->bindValue(':tel', $agent->getTelephone(), PDO::PARAM_INT);
+			$stmt->bindValue(':nais', $agent->getDateNaissance(), PDO::PARAM_STR);
+			$stmt->bindValue(':datecrea', $agent->getDateCreation(), PDO::PARAM_STR);
+			$stmt->bindValue(':sex', $agent->getSexe(), PDO::PARAM_STR);
+			$stmt->bindValue(':mail', $agent->getEmail(), PDO::PARAM_STR);
+			$stmt->bindValue(':idAgent', $agent->getIdAgent(), PDO::PARAM_INT);
+			$stmt->execute();
+			header("location: {$_SERVER['HTTP_REFERER']}");
+
+		}
 
 public function deleteAgent(){
 $idAgent = $_GET['id'];
@@ -54,17 +82,7 @@ public function addAgents(Agent $agent ,User $user){
 		
 		header("location: {$_SERVER['HTTP_REFERER']}");
 	}
-	
-	
-	
 
-
-
-
-
-	}
-	
-	
-	
+}
 
 ?>

@@ -16,7 +16,7 @@ class DetailControle extends Database{
 	}
 
 		public function getDetailAgences(){
-		$sql="SELECT p.* FROM client c,agent a,agence p,compte t,operation f WHERE a.idAgence=p.idAgence and t.idClient=c.idClient and f.numCompte=t.numCompte and f.idAgent=a.idAgent; ";
+		$sql="SELECT p.* FROM client c,agent a,agence p,compte t,operation f WHERE a.idAgence=p.idAgence and t.idClient=c.idClient and f.numCompte=t.numCompte and f.idAgent=a.idAgent ";
 		$stmt= $this->connect()->prepare($sql);
 		$stmt->execute();
 		while ($result = $stmt->fetchAll()) {
@@ -26,7 +26,7 @@ class DetailControle extends Database{
 
 
 	public function getDetailClients(){
-		$sql="SELECT c.*,t.numCompte FROM client c,agent a,agence p,compte t,operation f WHERE a.idAgence=p.idAgence and t.idClient=c.idClient and f.numCompte=t.numCompte and f.idAgent=a.idAgent; ";
+		$sql="SELECT c.*,t.numCompte FROM client c,agent a,agence p,compte t,operation f WHERE a.idAgence=p.idAgence and t.idClient=c.idClient and f.numCompte=t.numCompte and f.idAgent=a.idAgent ";
 		$stmt= $this->connect()->prepare($sql);
 		$stmt->execute();
 		while ($result = $stmt->fetchAll()) {
@@ -36,7 +36,7 @@ class DetailControle extends Database{
 
 
 	public function getOperation(){
-		$sql="SELECT f.* FROM client c,agent a,agence p,compte t,operation f WHERE a.idAgence=p.idAgence and t.idClient=c.idClient and f.numCompte=t.numCompte and f.idAgent=a.idAgent; ";
+		$sql="SELECT f.* FROM client c,agent a,agence p,compte t,operation f WHERE a.idAgence=p.idAgence and t.idClient=c.idClient and f.numCompte=t.numCompte and f.idAgent=a.idAgent";
 		$stmt= $this->connect()->prepare($sql);
 		$stmt->execute();
 		while ($result = $stmt->fetchAll()) {

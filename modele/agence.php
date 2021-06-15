@@ -1,5 +1,6 @@
 <?php 
 class Agence{
+	public $idAgence;
 	public $nomAgence;
 	public $adresse;
 	public $telephone;
@@ -10,24 +11,26 @@ class Agence{
     /***
      *contructeur avec les parametres des variables declares 
      */
-	function __construct($nomAgence,$email,$adresse,$telephone,$dateCreation){
+	function __construct($idAgence,$nomAgence,$email,$adresse,$telephone,$dateCreation){
 		
+		$this->idAgence = $idAgence;
 		$this->nomAgence = $nomAgence;
 		$this->email = $email;
 		$this->adresse = $adresse;
 		$this->telephone = $telephone;
 		$this->dateCreation = $dateCreation;
-		
-
 	}
 
 	/***
      *getters
      */
+	public function getIdAgence(){
+		return $this->idAgence;
+	}
+
 	public function getNom(){
 		return $this->nomAgence;
 	}
-
 
 	public function getEmail(){
 		return $this->email;
@@ -51,6 +54,9 @@ class Agence{
 	/***
      *setters
      */
+	public function setIdAgence($idAgence){
+		$this->idAgence = $idAgence;
+	}
 
 	public function setNom($nomAgence){
 		$this->nomAgence = $nomAgence;

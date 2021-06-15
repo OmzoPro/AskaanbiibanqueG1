@@ -5,7 +5,16 @@ class AgenceControle extends Database{
 	 * fonction pour recuperer tous les enregistrements de user
 	 **/
 	public function getAgences(){
-		$sql="SELECT * FROM agence; ";
+		$sql="SELECT * FROM agence";
+		$stmt= $this->connect()->prepare($sql);
+		$stmt->execute();
+		while ($result = $stmt->fetchAll()) {
+			return $result;
+		}
+	}
+
+	public function getAgence(){
+		$sql="SELECT nomAgence, a.idAgence FROM agence a, agent t WHERE a.idAgence!=t.idAgence";
 		$stmt= $this->connect()->prepare($sql);
 		$stmt->execute();
 		while ($result = $stmt->fetchAll()) {
@@ -35,32 +44,25 @@ public function addAgences(Agence $agence){
 		$stmt->execute();
 		header("location: {$_SERVER['HTTP_REFERER']}");
 	}
-	/**
-	 * fonction pour supprimer agnent avec un  id
-	 * public function deleteAgents($id){
-		$sql = $this->connect()->prepare("DELETE FROM personnes WHERE idPersonne = :idPersonne;");
-		$sql->bindValue(':idPersonne', $id, PDO::PARAM_STR);
-		return $sql->execute();
-	 **/
+
+	public function editAgences(Agence $agence){
+ $sql = 'UPDATE agence SET nomAgence=:nomAgent, email=:emailAgent, telephone=:telephoneAgent, adresse=:adresseAgent WHERE idAgence=:idAgent';
+ 
+
+			$sql="UPDATE agence set nomAgence=:nm, email=:mail, telephone=:tel, adresse=:adrs, dateCreation=:datecrea WHERE idAgence=:idAgence";
+			$stmt= $this->connect()->prepare($sql);
+			$stmt->bindValue(':nm', $agence->getNom(), PDO::PARAM_STR);
+			$stmt->bindValue(':mail', $agence->getEmail(), PDO::PARAM_STR);
+			$stmt->bindValue(':tel', $agence->getTelephone(), PDO::PARAM_INT);
+			$stmt->bindValue(':adrs', $agence->getAdresse(), PDO::PARAM_STR);
+			$stmt->bindValue(':datecrea', $agence->getDateCreation(), PDO::PARAM_STR);
+			$stmt->bindValue(':idAgence', $agence->getIdAgence(), PDO::PARAM_INT);
+			$stmt->execute();
+			header("location: {$_SERVER['HTTP_REFERER']}");
+
+		}
 	
 	}
-	/**
-	 * fonction pour s'authentifier avec un  roles précis
-	 * public function authentication($email,$password){
-		$sql="SELECT * FROM personnes  WHERE  email=:email AND password=:password";
-		$stmt  =$this->connect()->prepare($sql);
-        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-  $stmt->bindValue(':password', $password, PDO::PARAM_STR);
-            $stmt->execute();
-           $resultat = $stmt->fetch(PDO::FETCH_ASSOC); 
-           //session_start();
-          // $role = $resultat['role'];
-          // $_SESSION['roleAuth'] = $role;
-          
-           	
-			return $resultat;
-}
-		 **/
 	
 	
 

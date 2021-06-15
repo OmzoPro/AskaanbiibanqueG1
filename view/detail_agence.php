@@ -1,7 +1,6 @@
 
 <?php include('modele/detailControle.php');?>
-<?php include('modele/agentControle.php');?>
-<?php include('modele/clientControle.php');?>
+
 <!-- Debut tableau -->
 <section class="open-account-area ptb-100">
     <div class="container">
@@ -15,32 +14,37 @@
                             </div>
                         </div>
                     </div>
-                    <?php $agentController = new DetailControle(); ?>
-                    <?php if($agentController->getDetailAgents()) : ?>
-                    <?php foreach($agentController->getDetailAgents() as $Agent) : ?>
-                        <?php endforeach; ?>
-                        <?php endif; ?>
+                    
+                        
             
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
                             <label class=""><h1> chef Agence</h1></label>
                         </div>
                     </div>
+ <?php $clientController = new DetailControle(); ?>
+         <?php if($clientController->getDetailAgents()) : ?>
+          <?php foreach($clientController->getDetailAgents() as $Agents) : ?>
+              <?php endforeach; ?>
+                        <?php endif; ?>
+            
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
-                            <label>nom Agence:  <?= $Agent['nom'] ?> </label>
+                            <label>nom Agence:  <?= $Agents['nom'] ?> </label>
+                        </div>
+                    </div>
+                     
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label>Adresse: <?= $Agents['adresse'] ?></label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                            <label>Adresse: <?= $Agent['adresse'] ?></label>
+                            <label>Téléphone: <?= $Agents['adresse'] ?></label>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="form-group">
-                            <label>Téléphone: <?= $Agent['telephone'] ?></label>
-                        </div>
-                    </div>
+                   
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
                             <label class=""><h1>liste des agents</h1></label>
@@ -63,9 +67,9 @@
         recuperation des données de la base par l'appél de la methode
         getUsers de la classe UserController s
           --->
-        <?php $agentController = new AgentControle(); ?>
-        <?php if($agentController->getAgents()) : ?>
-        <?php foreach($agentController->getAgents() as $Agents) : ?>
+        <?php $agentController = new DetailControle(); ?>
+        <?php if($agentController->getDetailAgents()) : ?>
+        <?php foreach($agentController->getDetailAgents() as $Agents) : ?>
         <tr>
           <th><?= $Agents['nom'] ?></th>
           <th><?= $Agents['prenom'] ?></th>
@@ -102,9 +106,9 @@
         recuperation des données de la base par l'appél de la methode
         getUsers de la classe UserController s
           --->
-         <?php $clientController = new ClientControle(); ?>
-         <?php if($clientController->getClients()) : ?>
-          <?php foreach($clientController->getClients() as $Agents) : ?>
+         <?php $clientController = new DetailControle(); ?>
+         <?php if($clientController->getDetailClients()) : ?>
+          <?php foreach($clientController->getDetailClients() as $Agents) : ?>
         <tr>
           <th><?= $Agents['nom'] ?></th>
           <th><?= $Agents['prenom'] ?></th>

@@ -1,6 +1,7 @@
 <?php 
 class Client{
 	
+	public $idClient;	
 	public $nom;
 	public $prenom;
 	public $adresse;
@@ -16,10 +17,10 @@ class Client{
     /***
      *contructeur avec les parametres des variables declares 
      */
-	function __construct($nom,$prenom,$adresse,$telephone,$email,$naissance,$dateCreation,$cni,$sexe){
+	function __construct($idClient,$nom,$prenom,$adresse,$telephone,$email,$naissance,$dateCreation,$cni,$sexe){
 	    $this->nom = $nom;
+	    $this->idClient = $idClient;
 		$this->prenom = $prenom;
-		
 		$this->adresse = $adresse;
 		$this->telephone = $telephone;
 		$this->email = $email;
@@ -27,9 +28,6 @@ class Client{
 		$this->dateCreation = $dateCreation;
 		$this->cni = $cni;
 		$this->sexe = $sexe;
-		
-
-		
 
 	}
 
@@ -37,6 +35,10 @@ class Client{
      *getters
      */
 	
+	public function getIdClient(){
+		return $this->idClient;
+	}
+
 	public function getNom(){
 		return $this->nom;
 	}
@@ -74,7 +76,9 @@ class Client{
 	/***
      *setters
      */
-
+	public function setIdClient($idClient){
+		$this->idClient = $idClient;
+	}
 
 	public function setNom($nom){
 		$this->nom = $nom;

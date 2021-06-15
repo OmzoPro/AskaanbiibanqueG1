@@ -29,7 +29,7 @@ if (isset($_GET['type_'])) {
         }
         ?>
         <div class="open-account-form">
-            <form action="controler/addOperation.php" method="POST">
+            <form action="controler/operationController.php" method="POST">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">

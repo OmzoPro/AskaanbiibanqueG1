@@ -90,6 +90,9 @@ if (isset($_GET['deconnexion'])) {
                           Ajout Agent
                       </a>
                   </li>
+                  <?php
+                  }if ($_SESSION['role']=='chef_agent'){
+                  ?>
                   <li class="nav-item">
                       <a href="?p=list_agent" class="nav-link">
                           Listes des Agents
@@ -99,6 +102,11 @@ if (isset($_GET['deconnexion'])) {
                   }
                   if ($_SESSION['role']=='super_admin'){
                   ?>
+                  <li class="nav-item">
+                      <a href="?p=list_agents" class="nav-link">
+                          Listes des Agents
+                      </a>
+                  </li>
                   <li class="nav-item">
                       <a href="?p=ajout_agence" class="nav-link">
                           Ajout Agence
@@ -122,10 +130,11 @@ if (isset($_GET['deconnexion'])) {
                   <div class="option-item">
                     <?php
                     if (($_SESSION['role']=='client')) {
-                      $prenom=$_SESSION['prenom'];
-                      $nom=$_SESSION['nom'];
+                      $prenom=$_SESSION['prenomCon'];
+                      $nom=$_SESSION['nomCon'];
                     }elseif (($_SESSION['role']=="agent") OR ($_SESSION['role']=="chef_agent")) {
-                      
+                      $prenom=$_SESSION['prenomAgentCon'];
+                      $nom=$_SESSION['nomAgentCon'];
                     }elseif (($_SESSION['role']=='super_admin')) {
                       $prenom="Super";
                       $nom="Admin";
@@ -135,7 +144,7 @@ if (isset($_GET['deconnexion'])) {
 
                     }
                     ?>
-                    <a href="?deconnexion=true" class="default-btn">deconnexion</a>
+                    <a href="?deconnexion=true" class="default-btn">welcome <?=$prenom?> <?=$nom?></a>
                   </div>
               </div>
           </div>

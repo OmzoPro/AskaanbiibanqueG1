@@ -1,4 +1,5 @@
 <?php include('modele/agentControle.php');?>
+
 <section class="open-account-area ptb-100">
   <div class="container">
     <div class="section-title" >
@@ -12,6 +13,7 @@
           <th>Nom</th>
           <th>Prenom</th>
           <th>telephone</th>
+          <th>grade</th>
           <th>adresse</th>
           <th>nom agence</th>
           <th scope="col">action</th>
@@ -24,14 +26,13 @@
         getUsers de la classe UserController s
           --->
         <?php $agentController = new AgentControle(); ?>
-     
-        <?php if($agentController->getAgent()) : ?>
-
-        <?php foreach($agentController->getAgent() as $Agents) : ?>
+        <?php if($agentController->getAgents()) : ?>
+        <?php foreach($agentController->getAgents() as $Agents) : ?>
         <tr>
           <th><?= $Agents['nom'] ?></th>
           <th><?= $Agents['prenom'] ?></th>
           <th><?= $Agents['telephone'] ?></th>
+          <th><?= $Agents['grade'] ?></th>
           <th><?= $Agents['adresse'] ?></th>
           <th><?= $Agents['nomAgence'] ?></th>
           <th>

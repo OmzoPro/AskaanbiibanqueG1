@@ -3,8 +3,7 @@ class Compte{
 	public $numCompte;
 	public $typeCompte;
 	public $solde;
-	
-	
+
     /***
      *contructeur avec les parametres des variables declares 
      */
@@ -19,10 +18,7 @@ class Compte{
 	/***
      *getters
      */
-	
-	public function getIdClient(){
-		return $this->idClient;
-	}
+
 	public function getNumCompte(){
 		return $this->numCompte;
 	}
@@ -38,9 +34,7 @@ class Compte{
 	/***
      *setters
      */
-	public function setIdClient($idClient){
-		$this->idClient = $idClient;
-	}
+
 	public function setNumCompte($numCompte){
 		$this->numCompte = $numCompte;
 	}

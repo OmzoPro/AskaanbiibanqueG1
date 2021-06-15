@@ -13,6 +13,29 @@ class ClientControle extends Database{
 		}
 	}
 
+	public function getInfosClients(){
+		
+		$sql="SELECT * FROM client WHERE  idClient=:idClient";
+	    $stmt = $this->connect()->prepare($sql);
+	    $stmt->bindValue(':idClient', $idClient, PDO::PARAM_INT);
+	    $stmt->execute();
+	    $resultat = $stmt->fetch(PDO::FETCH_ASSOC);     
+	    $idClient = $resultat['idClient'];
+	    $prenom = $resultat['prenom'];
+	    $nom = $resultat['nom'];
+	    $adresse = $resultat['adresse'];
+	    $telephone= $_SESSION['telephone'];
+	    $naissance=$_SESSION['naissance'];
+	    $email= $_SESSION['email'];
+	    $sexe= $_SESSION['sexe'];
+	    $cni= $_SESSION['cni'];
+	    $dateCreation= $_SESSION['dateCreation'];
+		while ($resultat = $stmt->fetchAll()) {
+			return $resultat;
+		}
+		//return $resultat;
+	}
+
 	/**
 	 * fonction pour recuperer tous les enregistrements de user
 	 **/
@@ -69,7 +92,24 @@ class ClientControle extends Database{
 
 		header("location: {$_SERVER['HTTP_REFERER']}");
 	}
-		
+
+		public function editClients(Client $client){
+
+			$sql="UPDATE client set nom=:nom, prenom=:prenom, naissance=:naissance, sexe=:sexe, adresse=:adresse, telephone=:telephone,email=:email, cni=:cni WHERE idClient=:idClient";
+			$stmt= $this->connect()->prepare($sql);
+			$stmt->bindValue(':nom', $client->getNom(), PDO::PARAM_STR);
+			$stmt->bindValue(':prenom', $client->getPrenom(), PDO::PARAM_STR);
+			$stmt->bindValue(':naissance', $client->getDateNaissance(), PDO::PARAM_STR);
+			$stmt->bindValue(':sexe', $client->getSexe(), PDO::PARAM_STR);
+			$stmt->bindValue(':adresse', $client->getAdresse(), PDO::PARAM_STR);
+			$stmt->bindValue(':telephone', $client->getTelephone(), PDO::PARAM_INT);
+			$stmt->bindValue(':email', $client->getEmail(), PDO::PARAM_STR);
+			$stmt->bindValue(':cni', $client->getCni(), PDO::PARAM_INT);
+			$stmt->bindValue(':idClient', $client->getIdClient(), PDO::PARAM_INT);
+			$stmt->execute();
+			header("location: {$_SERVER['HTTP_REFERER']}");
+
+		}
 	/**
 	 * fonction pour supprimer agnent avec un  id
 	 * public function deleteAgents($id){

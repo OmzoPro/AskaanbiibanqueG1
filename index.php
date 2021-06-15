@@ -33,6 +33,9 @@
 		else if($_GET['p']=='list_agent'){
 			include('view/list_agent.php');
 		}
+		else if($_GET['p']=='list_agents'){
+			include('view/list_agents.php');
+		}
 		else if($_GET['p']=='ajout_agence'){
 			include('view/ajout_agence.php');
 		}

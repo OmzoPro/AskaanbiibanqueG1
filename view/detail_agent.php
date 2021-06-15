@@ -3,7 +3,7 @@ if (isset($_GET['id'])) {
         $idAgent = $_GET['id'];
     }
 ?>
-<?php include('modele/detailControle.php');?>
+ <?php require'modele/detailControle.php' ;   ?>
 
  <!-- Debut tableau -->
  <section class="open-account-area ptb-100">
@@ -21,22 +21,19 @@ if (isset($_GET['id'])) {
                         </div>
                     </div>
                 </div>
-                <?php $agenceController = new DetailControle(); ?>
-       <?php if($agenceController->getDetailAgences()) : ?>
-        <?php foreach($agenceController->getDetailAgences() as $Agences) : ?>
-          <?php endforeach; ?>
-        <?php endif; ?>
+                     <?php $agenceController = new DetailControle(); ?>
+                    <?php if($agenceController->getDetailAgences()) : ?>
+                    <?php foreach($agenceController->getDetailAgences() as $Agences) : ?>
+                    <?php endforeach; ?>
+                    <?php endif; ?>
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
                             <label class=""><h1>Agence</h1></label>
                         </div>
                     </div>
-                    
-        
-         
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
-                            <label>nom Agence:  <?= $Agences['nomAgence'] ?> </label>
+                            <label >nom Agence:<?= $Agences['nomAgence'] ?>   </label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -61,8 +58,8 @@ if (isset($_GET['id'])) {
           <th>N° compte</th>
           <th>operation</th>
           <th>date</th>
-          <th>solde A</th>
-          <th>solde P</th>
+          <th>solde Avant</th>
+          <th>solde Apres</th>
          
       </thead>
       <!--corpt tableau-->
@@ -72,6 +69,7 @@ if (isset($_GET['id'])) {
         recuperation des données de la base par l'appél de la methode
         getUsers de la classe UserController s
           --->
+         
          <?php $clientController = new DetailControle(); ?>
          <?php if($clientController->getOperation()) : ?>
           <?php foreach($clientController->getOperation() as $Agents) : ?>
@@ -89,29 +87,44 @@ if (isset($_GET['id'])) {
     </table>
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
-                            <label class=""><h1>chef agence</h1></label>
+                            <label class=""><h1>liste des clients</h1></label>
                         </div>
                     </div>
-                    <?php $agentController = new DetailControle(); ?>
-       <?php if($agentController->getDetailAgents()) : ?>
-        <?php foreach($agentController->getDetailAgents() as $Agents) : ?>
-           <?php endforeach; ?>
+                                        <table class="table table-bordered" >     
+      <!--entete tableau-->
+      <thead >
+        <tr>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>telephone</th>
+          <th>N° compte</th>
+          <th>adresse</th>
+         
+      </thead>
+      <!--corpt tableau-->
+
+      <tbody>
+        <!--
+        recuperation des données de la base par l'appél de la methode
+        getUsers de la classe UserController s
+          --->
+          
+         <?php $clientController = new DetailControle(); ?>
+         <?php if($clientController->getDetailClients()) : ?>
+          <?php foreach($clientController->getDetailClients() as $Agents) : ?>
+        <tr>
+          <th><?= $Agents['nom'] ?></th>
+          <th><?= $Agents['prenom'] ?></th>
+          <th><?= $Agents['telephone'] ?></th>
+          <th><?= $Agents['numCompte'] ?></th>
+          <th><?= $Agents['adresse'] ?></th>
+         
+        </tr>
+        <?php endforeach; ?>
         <?php endif; ?>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="form-group">
-                            <label>Prenom:<?= $Agents['prenom'] ?> </label>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="form-group">
-                            <label>Nom:<?= $Agents['nom'] ?></label>
-                        </div>
-                    </div>
-                     <div class="col-lg-6 col-md-6">
-                        <div class="form-group">
-                            <label>Téléphone:<?= $Agents['telephone'] ?></label>
-                        </div>
-                    </div>
+      </tbody>
+    </table>
+                      
                <div class="col-lg-12">
                     
                     <div class="banner-form-btn">
